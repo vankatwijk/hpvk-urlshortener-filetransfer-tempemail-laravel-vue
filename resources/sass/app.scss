@@ -1,0 +1,51 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+// Variables
+@import 'variables';
+// Fontawesome
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/regular.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+
+@import '~sweetalert2/dist/sweetalert2.min.css';
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* purgecss start ignore */
+.list-enter-active, .list-leave-active {
+    transition: all 1s;
+}
+
+.list-enter
+{
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.list-leave-active {
+    display: none;
+}
+
+.list-move {
+    transition: transform 1s;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to
+{
+    opacity: 0;
+}
+/* purgecss end ignore */
