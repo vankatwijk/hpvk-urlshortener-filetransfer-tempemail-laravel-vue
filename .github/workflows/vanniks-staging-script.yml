@@ -31,3 +31,4 @@ jobs:
             cd /var/www/html/hpvk && git pull https://${{ secrets.GIT_PULL_USER }}:${{ secrets.GIT_PULL_PASS }}@github.com/vankatwijk/hpvk-urlshortener-filetransfer-tempemail-laravel-vue.git
             cd /var/www/html/hpvk && echo $(date -u) > lastupdated.json
             cd /var/www/html/hpvk && php artisan storage:link && php artisan key:generate && php artisan migrate
+            cd /var/www/html/hpvk && npm i && npm run prod
