@@ -1,7 +1,7 @@
 <template>
     <nav class="bg-white shadow py-4 px-4 sm:flex sm:justify-between sm:items-baseline">
         <div class="flex justify-between items-baseline">
-            <a :href="'/'" class="text-purple-700 font-semibold subpixel-antialiased text-xl">Short.test</a>
+            <a :href="'/'" class="text-purple-700 font-semibold subpixel-antialiased text-xl">HPVK</a>
             <div class="sm:hidden">
                 <button @click="isOpen = !isOpen" type="button" class="block text-gray-500 hover:text-purple-700 focus:outline-none">
                     <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24" alignment-baseline="bottom">
