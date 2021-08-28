@@ -25,7 +25,7 @@ class Link extends Model
         'totalClicks',
     ];
 
-    public function resolveRouteBinding($value)
+    public function resolveRouteBinding($value, $field = NULL)
     {
         // Check if it's a hashid encoded short link
         if (count(app()->encoder->decode($value)) > 0) {
