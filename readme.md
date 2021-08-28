@@ -18,7 +18,7 @@ It's main features are:
 
 1. Clone this repository
 ```bash
-git clone git@github.com:eacdev/laravel-url-shortener.git
+git clone git@github.com:vankatwijk/hpvk-urlshortener-filetransfer-tempemail-laravel-vue.git
 ```
 
 2. Install dependencies
