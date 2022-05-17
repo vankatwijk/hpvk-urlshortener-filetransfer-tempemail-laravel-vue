@@ -47,6 +47,8 @@
         -o-object-fit: cover;
         object-fit: cover;
         background: #232a34;
+        position: absolute;
+        z-index: -1;
     }
 </style>
 

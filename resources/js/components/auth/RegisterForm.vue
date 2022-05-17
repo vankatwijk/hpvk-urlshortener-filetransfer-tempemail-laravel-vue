@@ -46,7 +46,7 @@
             </div>
 
             <div class="flex items-center">
-                <button type="submit" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+                <button type="submit" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
                     Register
                 </button>
             </div>
