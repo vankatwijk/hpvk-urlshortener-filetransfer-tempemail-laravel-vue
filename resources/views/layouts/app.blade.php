@@ -21,8 +21,13 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
 </head>
 <body class="bg-gray-200 font-sans">
-    <div style="display:none;">HPVK.com the Swiss army knife of tiny web tools, Free URL shortener shortens your unwieldly links into more manageable and useable URLs</div>
+
+<div style="display:none;">HPVK.com the Swiss army knife of tiny web tools, Free URL shortener shortens your unwieldly links into more manageable and useable URLs</div>
 <div id="app">
+    <video autoplay="" loop="" muted="" poster="https://www.pexels.com/assets/videos/free-videos-7daa2ef41a140f70c757ce91913a4ecb90570b7d7cd2b401bae868350e02c83a.jpg">
+        <source src="https://static.pexels.com/lib/videos/free-videos.mp4" type="video/mp4">
+        <source src="https://static.pexels.com/lib/videos/free-videos.webm" type="video/webm">
+    </video>
     @guest()
         <navigation-bar :user="''"></navigation-bar>
     @else
@@ -34,5 +39,16 @@
     </main>
 </div>
 </body>
+
+<style>
+    video {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        background: #232a34;
+    }
+</style>
+
 </html>
 

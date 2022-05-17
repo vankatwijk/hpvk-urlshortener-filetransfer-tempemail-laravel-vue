@@ -29,19 +29,20 @@ window.Vue.use(VueSweetalert2)
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.filter('truncate', function (text, stop, clamp) {
+Vue.filter('truncate', function(text, stop, clamp) {
     return text.slice(0, stop) + (stop < text.length ? clamp || '...' : '')
 })
 
-Vue.filter('momentDay', function (text) {
+Vue.filter('momentDay', function(text) {
     return moment(text).format('MMM D')
 })
 
-Vue.filter('momentDayYear', function (text) {
+Vue.filter('momentDayYear', function(text) {
     return moment(text).format('MMMM Do YYYY')
 })
 
 Vue.component('navigation-bar', require('./components/layout/NavigationBar').default)
+Vue.component('dash-bar', require('./components/layout/DashBar').default)
 Vue.component('shorten-link-page', require('./components/landing/ShortenLinkPage').default)
 Vue.component('links-list', require('./components/common/LinksList').default)
 Vue.component('previous-links-list-item', require('./components/landing/PreviousLinksListItem').default)
