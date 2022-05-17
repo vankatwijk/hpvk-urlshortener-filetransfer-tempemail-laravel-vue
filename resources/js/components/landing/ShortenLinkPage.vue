@@ -25,7 +25,7 @@
         </transition>
 
         <div class="flex flex-row text-gray-600 justify-center mt-12">
-            <a href="http://github.com/eacdev/laravel-url-shortener">View the code on <i class="fab fa-github"></i></a>
+            <a href="https://github.com/vankatwijk/hpvk-urlshortener-filetransfer-tempemail-laravel-vue">View the code on <i class="fab fa-github"></i></a>
         </div>
     </div>
 </template>
