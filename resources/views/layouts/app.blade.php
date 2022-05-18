@@ -15,6 +15,10 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="icon" href="https://hpvk.com/favicon.ico">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png" />
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -51,8 +55,24 @@
         background: #232a34;
         position: absolute;
         z-index: -1;
+        filter: blur(20px);
     }
 </style>
+<script>
+    // we check if the browser supports ServiceWorkers
+    if ('serviceWorker' in navigator) {
+        navigator
+            .serviceWorker
+            .register(
+                // path to the service worker file
+                './service-worker.js'
+            )
+            // the registration is async and it returns a promise
+            .then(function(reg) {
+                console.log('Registration Successful');
+            });
+    }
+</script>
 
 </html>
 
