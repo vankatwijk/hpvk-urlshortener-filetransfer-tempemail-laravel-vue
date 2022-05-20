@@ -19,7 +19,7 @@
                         <p>This feels empty...</p><br/>
                         <p>Start by adding some links or upload a file to transfer(48hrs) with our tiny url👆</p>
                         <p>Then view your dashboard for some amazing insights <span>📈</span></p>
-                        <p>Also try our Link tree form the dashboard <span>🌳</span></p>
+                        <p>Also try our Link tree from the dashboard <span>🌳</span></p>
                     </template>
                 </notification>
             </div>
