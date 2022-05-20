@@ -17,6 +17,8 @@ class CreateLinksTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->nullable();
             $table->text('original');
+            $table->string('folder')->nullable();
+            $table->string('file_name')->nullable();
             $table->timestamps();
         });
     }
