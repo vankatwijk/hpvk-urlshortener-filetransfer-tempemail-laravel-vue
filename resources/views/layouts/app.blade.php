@@ -9,7 +9,7 @@
 
     <title>HPVK.com | the Swiss army knife of tiny web tools</title>
     <meta name="description" content="HPVK.com the Swiss army knife of tiny web tools, Free URL shortener shortens your unwieldly links into more manageable and useable URLs plus our temp file upload service you have all you need in one place">
-    <meta name="keywords" content="hpvk tinyurl url save share shorten analyze web tools file transfer">
+    <meta name="keywords" content="hpvk tinyurl url save share shorten analyze web tools file transfer hendrikus pieter van katwijk">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
