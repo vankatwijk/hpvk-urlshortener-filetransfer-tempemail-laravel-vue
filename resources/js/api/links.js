@@ -17,7 +17,7 @@ export default {
     upload(link) {
         console.log('process.env.MIX_APP_URL', process.env.MIX_APP_URL);
 
-        return client.post('upload', link.file)
+        return client.uploadPost('upload', link)
     },
 
     getAllLinksForUser() {

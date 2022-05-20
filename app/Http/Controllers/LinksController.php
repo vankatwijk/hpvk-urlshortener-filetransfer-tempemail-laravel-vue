@@ -52,6 +52,17 @@ class LinksController extends Controller
         if($link->original == '@file'){
 
             if(Storage::disk('public')->assertExists('files/'.$link->file.'/'.$link->file_name)){
+                $full_path = Storage::disk('public')->path('files/'.$link->file.'/'.$link->file_name);
+                $imneType = mime_content_type($full_path);
+                
+                //if the file is an image display it instead of making it downloadable
+                if($imneType == "image/png" || $imneType == "image/jpg" || $imneType == "image/jpeg"){
+                    $base64 = base64_encode(Storage::disk('public')->get('files/'.$link->file.'/'.$link->file_name));
+                    $image_data = 'data:'.mime_content_type($full_path) . ';base64,' . $base64;
+                    return view('viewer.image')->with('imageData',$image_data);
+                }
+
+                //make file downloadable
                 return Storage::disk('public')->download('files/'.$link->file.'/'.$link->file_name);
             }else{
                 return view('links.create');

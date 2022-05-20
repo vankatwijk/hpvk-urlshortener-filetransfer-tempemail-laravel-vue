@@ -8,8 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>HPVK.com | the Swiss army knife of tiny web tools</title>
-    <meta name="description" content="HPVK.com the Swiss army knife of tiny web tools, Free URL shortener shortens your unwieldly links into more manageable and useable URLs">
-    <meta name="keywords" content="hpvk tinyurl url save share shorten analyze web tools">
+    <meta name="description" content="HPVK.com the Swiss army knife of tiny web tools, Free URL shortener shortens your unwieldly links into more manageable and useable URLs plus our temp file upload service you have all you need in one place">
+    <meta name="keywords" content="hpvk tinyurl url save share shorten analyze web tools file transfer">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -27,6 +27,8 @@
 <body class="bg-gray-200 font-sans">
 
 <div style="display:none;">HPVK.com the Swiss army knife of tiny web tools, Free URL shortener shortens your unwieldly links into more manageable and useable URLs</div>
+<div style="display:none;">hpvk is the simplest way to send your files around the world. Share large files and photos. Transfer up to 2GB free. File sharing made easy!</div>
+
 <div id="app">
     
     <video autoplay="" loop="" muted="" poster="https://www.pexels.com/assets/videos/free-videos-7daa2ef41a140f70c757ce91913a4ecb90570b7d7cd2b401bae868350e02c83a.jpg">

@@ -11,6 +11,8 @@ class Link extends Model
 {
     protected $fillable = [
         'original',
+        'file',
+        'file_name',
     ];
 
     protected $hidden = [

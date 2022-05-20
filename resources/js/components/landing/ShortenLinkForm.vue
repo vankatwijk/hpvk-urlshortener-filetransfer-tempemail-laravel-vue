@@ -52,7 +52,7 @@
           this.file = e.target.files[0];
 
           const link = {
-            original: this.addProtocolToLink(this.original),
+            original: '@file',
             file:  this.file
           }
 
