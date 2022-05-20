@@ -11,7 +11,7 @@ class Link extends Model
 {
     protected $fillable = [
         'original',
-        'file',
+        'folder',
         'file_name',
     ];
 
