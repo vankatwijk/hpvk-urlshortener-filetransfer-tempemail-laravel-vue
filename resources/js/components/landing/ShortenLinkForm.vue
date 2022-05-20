@@ -4,7 +4,14 @@
                required
                autocorrect="off" autocapitalize="none"
                @keyup.enter="shorten()"
-               placeholder="Enter URL">
+               placeholder="Enter URL / Upload file">
+        <button
+            onclick="document.getElementById('file').click();"
+            @submit.prevent=""
+            class="w-full sm:w-6/12 bg-teal-800 hover:bg-teal-400 text-white font-bold py-3 px-4 z-0 mt-2 sm:mt-0 sm:-ml-5 focus:outline-none">
+            <span v-if="! isLoading" class="sm:ml-5 text-lg">Upload</span>
+
+        </button>
         <button
             @submit.prevent=""
             @click.prevent="shorten()"
@@ -15,6 +22,7 @@
                 <clip-loader :loading="isLoading" :color="'#5dc596'" :size="'20px'" class="mx-auto sm:ml-5"></clip-loader>
             </span>
         </button>
+        <input @change="upload" type="file" style="display:none;" id="file" name="file"/>
     </div>
 </template>
 
@@ -32,6 +40,42 @@
     },
 
     methods: {
+      async upload(e) {
+
+        var files = e.target.files || e.dataTransfer.files;
+        if (!files.length){
+          return;
+
+        }else{
+          console.log('file has size');
+          this.isLoading = true;
+          this.file = e.target.files[0];
+
+          const link = {
+            original: this.addProtocolToLink(this.original),
+            file:  this.file
+          }
+
+          try {
+            const response = await linksClient.upload(link)
+            this.original = ''
+            this.$emit('addToPreviousLinks', response.data)
+          } catch (error) {
+
+            console.log('error',error);
+            this.$swal({
+              type: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong!',
+              confirmButtonColor: '#805ad5',
+            })
+          } finally {
+            this.isLoading = false
+          }
+
+        }
+      },
+      
       async shorten () {
         this.isLoading = true
 

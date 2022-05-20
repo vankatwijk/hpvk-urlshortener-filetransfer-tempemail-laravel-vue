@@ -27,6 +27,8 @@ Route::get('/links/create', 'LinksController@create');
 Route::group(['prefix' => 'api'], function () {
     Route::post('/shorten', 'LinksController@store');
 
+    Route::post('/upload', 'LinksController@storeupload');
+
     Route::get('/links', 'LinksController@index');
 });
 

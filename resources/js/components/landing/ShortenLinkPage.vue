@@ -14,11 +14,12 @@
 
             <div v-if="previousLinks.length === 0" class="md:w-2/3 mt-10 mx-auto">
                 <notification>
-                    <template #title>Hey!</template>
+                    <template #title>Hey! HPVK.com is the Swiss army knife of tiny web tools.</template>
                     <template #body>
-                        <p>This feels empty...</p>
-                        <p>Start by adding some links 👆</p>
-                        <p>Then view your dashboard for some <span>📈</span></p>
+                        <p>This feels empty...</p><br/>
+                        <p>Start by adding some links or upload a file to transfer with our tiny url👆</p>
+                        <p>Then view your dashboard for some amazing insights <span>📈</span></p>
+                        <p>Also try our Link tree form the dashboard <span>🌳</span></p>
                     </template>
                 </notification>
             </div>
