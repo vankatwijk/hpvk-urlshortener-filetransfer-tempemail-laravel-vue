@@ -1,5 +1,5 @@
 <template>
-    <nav class="bg-white shadow py-4 px-4 sm:flex sm:justify-between sm:items-baseline">
+    <nav class="bg-black text-white shadow py-4 px-4 sm:flex sm:justify-between sm:items-baseline">
         <div class="flex justify-between items-baseline">
             <a :href="'/'" class="text-teal-700 font-semibold subpixel-antialiased text-xl">HPVK</a>
             <div class="sm:hidden">

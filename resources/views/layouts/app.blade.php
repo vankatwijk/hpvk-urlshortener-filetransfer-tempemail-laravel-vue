@@ -57,7 +57,7 @@
         background: #232a34;
         position: absolute;
         z-index: -1;
-        filter: blur(20px);
+        filter: blur(15px);
     }
 </style>
 <script>

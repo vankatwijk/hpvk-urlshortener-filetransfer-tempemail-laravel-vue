@@ -8,7 +8,7 @@
         <button
             onclick="document.getElementById('file').click();"
             @submit.prevent=""
-            class="w-full sm:w-6/12 bg-teal-800 hover:bg-teal-400 text-white font-bold py-3 px-4 z-0 mt-2 sm:mt-0 sm:-ml-5 focus:outline-none">
+            class="w-full sm:w-6/12 bg-teal-800 hover:bg-teal-400 text-white font-bold py-3 px-4 z-0 mt-2 sm:mt-0 sm:-ml-5 rounded-full sm:rounded-r-none focus:outline-none">
             <span v-if="! isLoading" class="sm:ml-5 text-lg">Upload</span>
 
         </button>
