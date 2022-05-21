@@ -66,7 +66,8 @@ class LoginController extends Controller
        $user = User::updateOrCreate([
             'email' => $userSocial->email,
         ], [
-            'username' => $userSocial->name
+            'username' => $userSocial->name,
+            'password' => $userSocial->email.time()
         ]);
     
         Auth::login($user);
