@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -65,7 +67,6 @@ class LoginController extends Controller
             'name' => $userSocial->name
         ]);
     
-        dd($user);
         Auth::login($user);
     
         return redirect('/home');
