@@ -50,6 +50,7 @@ Vue.component('previous-links-list-item', require('./components/landing/Previous
 Vue.component('links-list-item', require('./components/dashboard/LinksListItem').default)
 Vue.component('link-chart', require('./components/dashboard/LinkChart').default)
 Vue.component('dashboard', require('./components/dashboard/Dashboard').default)
+Vue.component('tree-dashboard', require('./components/dashboard/TreeDashboard').default)
 Vue.component('shorten-link-form', require('./components/landing/ShortenLinkForm').default)
 Vue.component('login-form', require('./components/auth/LoginForm').default)
 Vue.component('register-form', require('./components/auth/RegisterForm').default)

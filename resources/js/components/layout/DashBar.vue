@@ -1,11 +1,9 @@
 <template>
-  <ul class="flex">
-    <li class="mr-6">
-      <a class="text-blue-500 hover:text-blue-800" href="#">Shorten Links</a>
-    </li>
-    <li class="mr-6">
-      <a class="text-blue-500 hover:text-blue-800" href="#">Link Tree</a>
-    </li>
+  <ul class="flex flex-col items-center">
+      <li>
+        <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold ml-10" href="#">Shorten Links</a>
+        <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" href="#">Link Tree</a>
+      </li>
   </ul>
 </template>
 

@@ -64,7 +64,7 @@
       let vm = this
 
       try {
-        const response = await LinksClient.getAllLinksForUser()
+        const response = await LinksClient.getAllTreeLinksForUser()
         response.data.forEach(function (link) {
           vm.links.push(link)
         })
@@ -82,7 +82,7 @@
     methods: {
       UpdateLinks (links) {
 
-        this.links = links;
+        this.links = links.filter(link => link.intree === 1);
 
       },
     }

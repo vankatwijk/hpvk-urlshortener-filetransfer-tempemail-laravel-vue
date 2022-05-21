@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Link;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use App\Http\Requests\ShowShortLink;
 use App\Http\Requests\StoreShortLink;
 use Illuminate\Support\Facades\Storage;
@@ -15,6 +16,13 @@ class LinksController extends Controller
     public function index()
     {
         $links = $this->getLinksForUserOrGuest();
+
+        return response()->json($links);
+    }
+
+    public function indexTree()
+    {
+        $links = $this->getTreeLinksForUserOrGuest();
 
         return response()->json($links);
     }
@@ -37,6 +45,13 @@ class LinksController extends Controller
     public function create()
     {
         return view('links.create');
+    }
+
+    public function addRemoveTree(Request $request)
+    {
+        $links = $this->updateLinkTree($request->id);
+
+        return response()->json($links);
     }
 
     public function store(StoreShortLink $request)
@@ -87,6 +102,28 @@ class LinksController extends Controller
             return redirect()->to($link->original);
         }
 
+    }
+
+    private function updateLinkTree($id)
+    {
+        if (auth()->guest()) {
+            return collect();
+        }
+        $link = Link::where('id','=',$id)->first();
+
+        Link::where('id','=',$id)->update(["intree" => ($link->intree == 1 ? 0 : 1) ]);
+
+
+        return auth()->user()->links;
+    }
+
+    private function getTreeLinksForUserOrGuest()
+    {
+        if (auth()->guest()) {
+            return collect();
+        }
+
+        return auth()->user()->treeLinks;
     }
 
     private function getLinksForUserOrGuest()

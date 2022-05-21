@@ -27,6 +27,7 @@ Auth::routes([
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/tree', 'HomeController@indexTree')->name('tree');
 
 Route::get('/links/create', 'LinksController@create');
 
@@ -36,6 +37,10 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('/upload', 'LinksController@storeupload');
 
     Route::get('/links', 'LinksController@index');
+
+    Route::get('/treelinks', 'LinksController@indexTree');
+
+    Route::post('/treelink/addRemove', 'LinksController@addRemoveTree');
 });
 
 Route::get('/{link}', 'LinksController@show');

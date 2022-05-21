@@ -23,4 +23,14 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    /**
+     * Show the application tree dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function indexTree()
+    {
+        return view('tree');
+    }
 }

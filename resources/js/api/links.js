@@ -15,13 +15,21 @@ export default {
     },
 
     upload(link) {
-        console.log('process.env.MIX_APP_URL', process.env.MIX_APP_URL);
 
         return client.uploadPost('upload', link)
     },
 
+    addRemoveLinkTree(link) {
+
+        return client.post('treelink/addRemove', link)
+    },
+
     getAllLinksForUser() {
         return client.get('links')
+    },
+
+    getAllTreeLinksForUser() {
+        return client.get('treelinks')
     }
 
 }

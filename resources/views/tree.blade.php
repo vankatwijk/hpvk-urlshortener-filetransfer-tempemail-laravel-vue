@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="p-3">
-        <dashboard></dashboard>
+        <tree-dashboard></tree-dashboard>
     </div>
 @endsection

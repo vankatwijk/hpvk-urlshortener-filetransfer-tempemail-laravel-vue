@@ -53,4 +53,17 @@ class User extends Authenticatable
                 },
             ]);
     }
+
+    public function treeLinks()
+    {
+        return $this->hasMany(Link::class)
+            ->where('intree','=','1')
+            ->orderBy('created_at', 'DESC')
+            ->with([
+                'clicks' => function ($query) {
+                    $query->groupBy(\DB::raw('month, link_id'))
+                        ->selectRaw('MONTH(created_at) as month, count(id) as click_count, link_id');
+                },
+            ]);
+    }
 }

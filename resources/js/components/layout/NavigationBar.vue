@@ -15,6 +15,8 @@
         <div :class="isOpen ? 'inline-block' : 'hidden'" class="sm:flex mt-3 md:mt-0">
             <a v-if="!this.user" :href="'/login'" class="block hover:text-teal-700 py-1 sm:py-0 sm:ml-5">Login</a>
             <a v-if="!this.user" :href="'/register'" class="block hover:text-teal-700 py-1 sm:py-0 sm:ml-5">Register</a>
+
+            <a v-if="this.user" :href="'/tree'" class="block hover:text-teal-700 py-1 sm:py-0 sm:ml-5"><i class="fas fa-tree text-xl"></i>  Link Tree</a>
             <a v-if="this.user" :href="'/home'" class="block hover:text-teal-700 py-1 sm:py-0 sm:ml-5">Home</a>
             <a v-if="this.user" :href="'/logout'" class="block hover:text-teal-700 py-1 sm:py-0 sm:ml-5">Logout</a>
         </div>

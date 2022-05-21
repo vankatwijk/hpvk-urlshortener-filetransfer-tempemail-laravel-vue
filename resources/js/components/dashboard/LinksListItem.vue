@@ -6,9 +6,9 @@
             <i class="fas fa-eye text-xl"></i>
             <p class="mt-1">{{ link.totalClicks }}</p>
         </div>
-        <div class="flex flex-col items-center bg-teal-100 text-teal-500 p-3 ml-3 rounded">
+        <div class="flex flex-col items-center bg-teal-100 text-teal-500 p-3 ml-3 rounded" @click="addRemoveTree(link)">
             <i class="fas fa-tree text-xl"></i>
-            <p class="mt-1">{{ link.totalClicks }}</p>
+            <p class="mt-1">{{ link.intree }}</p>
         </div>
         <div class="flex flex-col ml-6 sm:ml-8">
             <a :href="'/' + link.short" class="text-teal-600 font-semibold hover:underline">{{ APP_URL }}/{{ link.short }}</a>
@@ -18,6 +18,8 @@
 </template>
 
 <script>
+  import LinksClient from '../../api/links'
+
   export default {
     name: 'LinksListItem',
 
@@ -27,7 +29,28 @@
       return {
         APP_URL: process.env.MIX_APP_URL,
       }
+    },
+
+    methods: {
+      async addRemoveTree (link) {
+
+        try {
+          const response = await LinksClient.addRemoveLinkTree(link)
+          this.$emit('UpdateLinks', response.data)
+          
+        } catch (error) {
+          this.$swal({
+            type: 'error',
+            title: 'Oops...',
+            text: 'There was an error loading your past links.',
+          })
+        } finally {
+          this.isLoading = false
+        }
+
+      },
     }
+
   }
 </script>
 
