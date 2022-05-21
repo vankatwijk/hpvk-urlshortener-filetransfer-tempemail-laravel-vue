@@ -19,6 +19,21 @@ class LinksController extends Controller
         return response()->json($links);
     }
 
+    public function policy()
+    {
+        return view('pages.policy');
+    }
+
+    public function terms()
+    {
+        return view('pages.terms');
+    }
+
+    public function datadeletion()
+    {
+        return view('pages.datadeletion');
+    }
+
     public function create()
     {
         return view('links.create');

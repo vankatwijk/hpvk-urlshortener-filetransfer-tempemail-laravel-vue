@@ -10,6 +10,7 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@fortawesome/fontawesome-free": "^5.12.0",
         "axios": "^0.18.1",
         "cross-env": "^5.2.1",
         "laravel-mix": "^4.1.4",
@@ -21,6 +22,11 @@
         "vuex": "^3.1.2"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free-brands": "^5.0.13",
+        "@fortawesome/fontawesome-svg-core": "^6.1.1",
+        "@fortawesome/free-regular-svg-icons": "^6.1.1",
+        "@fortawesome/free-solid-svg-icons": "^6.1.1",
+        "@fortawesome/vue-fontawesome": "^2.0.6",
         "apexcharts": "^3.11.0",
         "chart.js": "^2.9.3",
         "moment": "^2.24.0",

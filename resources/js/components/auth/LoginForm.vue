@@ -28,20 +28,16 @@
             </div>
             <hr/>
             <div class="form-group">
-                <label for="name" class="col-md-4 control-label">Social Login</label>
+                <label for="name" class="col-md-4 text-center control-label">Social Login</label>
                 <div class="col-md-6">
-                    <a href="/login/facebook" class="btn btn-social-icon btn-facebook">
-                      <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+                    <a href="/login/facebook" class="btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
                           FaceBook
-                      </button>
                     </a>
                     <!--a href="/login/twitter" class="btn btn-social-icon btn-twitter"></a-->
                     <!--a href="/login/google" class="btn btn-social-icon btn-google-plus"></a-->
                     <!--a href="/login/linkedin" class="btn btn-social-icon btn-linkedin"></a-->
-                    <a href="/login/github" class="btn btn-social-icon btn-github">
-                      <button class="bg-gray-500 hover:bg-black-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+                    <a href="/login/github" class="btn bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
                           Github
-                      </button>
                     </a>
                 </div>
             </div>
@@ -70,4 +66,9 @@
 </script>
 
 <style scoped>
+.btn{
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
 </style>
