@@ -14,7 +14,7 @@ use Laravel\Socialite\Facades\Socialite;
 Route::get('/', 'LinksController@create');
 Route::get('/policy', 'LinksController@policy');
 Route::get('/terms', 'LinksController@terms');
-Route::get('/datadeletion', 'LinksController@datadeletion');
+Route::get('/fbdatadeletion', 'LinksController@datadeletion');
 
 Auth::routes([
     'reset' => false,
