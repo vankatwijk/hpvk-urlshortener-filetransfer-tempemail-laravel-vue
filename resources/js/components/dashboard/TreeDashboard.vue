@@ -6,12 +6,12 @@
           <div class="">
 
             <img v-if="!user.avatar" onclick="document.getElementById('file').click();" class="flex md:w-1/12 p-2 mb-6 mx-auto shadow rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="Profile image"/>
-            <img v-if="user.avatar" onclick="document.getElementById('file').click();" class="flex md:w-1/12 p-2 mb-6 mx-auto shadow rounded-full" :src="APP_URL+user.avatar" alt="Profile image"/>
+            <img v-if="user.avatar" onclick="document.getElementById('file').click();" class="flex md:w-1/12 p-2 mb-6 mx-auto shadow rounded-full" :src="APP_URL+'/storage/'+user.avatar" alt="Profile image"/>
             
             <input @change="upload" type="file" style="display:none;" id="file" name="file"/>
 
-            <span class="flex md:w-1/12 p-2 mb-6 mx-auto shadow rounded-full">
-              <a :href="APP_URL+'tree/'+treeLink" class="text-blue-500 hover:underline">{{APP_URL+'tree/'+treeLink}}</a>
+            <span class="flex md:w-4/12 p-2 mb-6 mx-auto shadow rounded-full">
+              <a :href="APP_URL+'tree/'+treeLink" class="text-blue-500 hover:underline">{{APP_URL+'/tree/'+treeLink}}</a>
             </span>
           </div>
 
