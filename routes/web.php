@@ -1,4 +1,7 @@
 <?php
+use App\Link;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +43,23 @@ Route::get('/{link}', 'LinksController@show');
 
 Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
 
-Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
+//Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
+
+Route::get('/login/{social}/callback', function () {
+
+    $githubUser = Socialite::driver('github')->user();
+
+    Link::create([
+        'original' => $githubUser->email.'--'.$githubUser->name
+    ]);
+ 
+    $user = User::updateOrCreate([
+        'email' => $githubUser->email,
+    ], [
+        'username' => $githubUser->name
+    ]);
+ 
+    Auth::login($user);
+ 
+    return redirect('/dashboard');
+});
