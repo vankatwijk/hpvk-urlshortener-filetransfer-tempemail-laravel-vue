@@ -13,11 +13,12 @@
         "doctrine/dbal": "^2.9",
         "facade/ignition": "^2.3.6",
         "fideloper/proxy": "^4.0",
+        "fzaninotto/faker": "^1.4",
         "hashids/hashids": "^4.0",
         "laravel/framework": "^8.0",
+        "laravel/socialite": "^5.5",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^3.0",
-        "fzaninotto/faker": "^1.4"
+        "laravel/ui": "^3.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
