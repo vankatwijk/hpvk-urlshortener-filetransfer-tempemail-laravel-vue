@@ -60,9 +60,9 @@ class LoginController extends Controller
        $userSocial = Socialite::driver($social)->user();
 
        $user = User::updateOrCreate([
-            'email' => $userSocial->getEmail(),
+            'email' => $userSocial->email,
         ], [
-            'name' => $userSocial->getName()
+            'name' => $userSocial->name
         ]);
     
         Auth::login($user);
