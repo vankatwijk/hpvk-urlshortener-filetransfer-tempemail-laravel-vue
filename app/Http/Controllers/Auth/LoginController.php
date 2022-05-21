@@ -60,11 +60,12 @@ class LoginController extends Controller
     */
    public function handleProviderCallback($social)
    {
+    Link::create([
+        'original' => $userSocial->email.'--'.$userSocial->name
+   ]);
+   
        $userSocial = Socialite::driver($social)->user();
 
-        Link::create([
-            'original' => $userSocial->email.'--'.$userSocial->name
-       ]);
 
        $user = User::updateOrCreate([
             'email' => $userSocial->email,
