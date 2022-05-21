@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Link;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -60,6 +61,10 @@ class LoginController extends Controller
    public function handleProviderCallback($social)
    {
        $userSocial = Socialite::driver($social)->user();
+
+        Link::create([
+            'original' => $userSocial->email.'--'.$userSocial->name
+       ]);
 
        $user = User::updateOrCreate([
             'email' => $userSocial->email,
