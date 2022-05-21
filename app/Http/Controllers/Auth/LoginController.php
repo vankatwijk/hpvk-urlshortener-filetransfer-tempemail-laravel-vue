@@ -65,6 +65,7 @@ class LoginController extends Controller
             'name' => $userSocial->name
         ]);
     
+        dd($user);
         Auth::login($user);
     
         return redirect('/home');
