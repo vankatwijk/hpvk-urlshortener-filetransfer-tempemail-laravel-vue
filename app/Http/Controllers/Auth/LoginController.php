@@ -6,6 +6,7 @@ use App\Link;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -67,7 +68,7 @@ class LoginController extends Controller
             'email' => $userSocial->email,
         ], [
             'username' => $userSocial->name,
-            'password' => $userSocial->email.time()
+            'password' => Hash::make( $userSocial->email.time() )
         ]);
     
         Auth::login($user);
