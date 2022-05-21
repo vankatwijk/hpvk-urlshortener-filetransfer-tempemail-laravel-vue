@@ -3,6 +3,21 @@
         <clip-loader :loading="isLoading" :color="'#805ad5'" :size="'21px'" class="mx-auto self-center"></clip-loader>
 
         <transition appear name="fade" mode="out-in">
+          <div class="">
+
+            <img v-if="!user.avatar" onclick="document.getElementById('file').click();" class="flex md:w-1/12 p-2 mb-6 mx-auto shadow rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="Profile image"/>
+            <img v-if="user.avatar" onclick="document.getElementById('file').click();" class="flex md:w-1/12 p-2 mb-6 mx-auto shadow rounded-full" :src="APP_URL+user.avatar" alt="Profile image"/>
+            
+            <input @change="upload" type="file" style="display:none;" id="file" name="file"/>
+
+            <span class="flex md:w-1/12 p-2 mb-6 mx-auto shadow rounded-full">
+              <a :href="APP_URL+'tree/'+treeLink" class="text-blue-500 hover:underline">{{APP_URL+'tree/'+treeLink}}</a>
+            </span>
+          </div>
+
+        </transition>
+
+        <transition appear name="fade" mode="out-in">
             <notification v-if="selectedLink.totalClicks === 0" class="md:w-2/3 mx-auto">
                 <template #title>Hey!</template>
                 <template #body>
@@ -49,14 +64,12 @@
     data () {
       return {
         APP_URL: process.env.MIX_APP_URL,
-
         selectedLink: {},
-
         chartLabels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-
         links: [],
-
         isLoading: true,
+        user:{},
+        treeLink:''
       }
     },
 
@@ -65,7 +78,11 @@
 
       try {
         const response = await LinksClient.getAllTreeLinksForUser()
-        response.data.forEach(function (link) {
+        console.log('treedashboard',response.data);
+
+        vm.user = response.data.user;
+        vm.treeLink = response.data.link;
+        response.data.tree.forEach(function (link) {
           vm.links.push(link)
         })
       } catch (error) {
@@ -80,6 +97,40 @@
     },
 
     methods: {
+      async upload(e) {
+
+        var files = e.target.files || e.dataTransfer.files;
+        if (!files.length){
+          return;
+
+        }else{
+          console.log('file has size');
+          this.isLoading = true;
+          this.file = e.target.files[0];
+
+          const data = {
+            original: '@avatar',
+            file:  this.file
+          }
+
+          try {
+            const response = await LinksClient.uploadAvatar(data)
+            this.user = response.data;
+          } catch (error) {
+
+            console.log('error',error);
+            this.$swal({
+              type: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong!',
+              confirmButtonColor: '#805ad5',
+            })
+          } finally {
+            this.isLoading = false
+          }
+
+        }
+      },
       UpdateLinks (links) {
 
         this.links = links.filter(link => link.intree === 1);

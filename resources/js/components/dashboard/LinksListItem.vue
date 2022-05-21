@@ -10,6 +10,10 @@
             <i class="fas fa-tree text-xl"></i>
             <p class="mt-1">{{ link.intree }}</p>
         </div>
+        <div class="flex flex-col items-center bg-red-100 text-teal-500 p-3 ml-3 rounded" @click="removeLink(link)">
+            <i class="fas fa-trash text-xl"></i>
+            <p class="mt-1">0</p>
+        </div>
         <div class="flex flex-col ml-6 sm:ml-8">
             <a :href="'/' + link.short" class="text-teal-600 font-semibold hover:underline">{{ APP_URL }}/{{ link.short }}</a>
             <a :href="link.original" class="text-teal-500 mt-1 hover:underline">{{ link.original | truncate(30) }}</a>
@@ -32,6 +36,24 @@
     },
 
     methods: {
+      
+      async removeLink (link) {
+
+        try {
+          const response = await LinksClient.removeLink(link)
+          this.$emit('UpdateLinks', response.data)
+          
+        } catch (error) {
+          this.$swal({
+            type: 'error',
+            title: 'Oops...',
+            text: 'There was an error loading your past links.',
+          })
+        } finally {
+          this.isLoading = false
+        }
+
+      },
       async addRemoveTree (link) {
 
         try {

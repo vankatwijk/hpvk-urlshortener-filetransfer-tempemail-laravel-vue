@@ -19,9 +19,18 @@ export default {
         return client.uploadPost('upload', link)
     },
 
+    uploadAvatar(data) {
+
+        return client.uploadPost('upload/avatar', data)
+    },
+
     addRemoveLinkTree(link) {
 
         return client.post('treelink/addRemove', link)
+    },
+    removeLink(link) {
+
+        return client.post('removeLink', link)
     },
 
     getAllLinksForUser() {
@@ -30,6 +39,10 @@ export default {
 
     getAllTreeLinksForUser() {
         return client.get('treelinks')
+    },
+
+    treeLink() {
+        return client.get('treeLink')
     }
 
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Link;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests\ShowShortLink;
@@ -20,7 +21,7 @@ class LinksController extends Controller
         return response()->json($links);
     }
 
-    public function indexTree()
+    public function indexTrees()
     {
         $links = $this->getTreeLinksForUserOrGuest();
 
@@ -50,6 +51,13 @@ class LinksController extends Controller
     public function addRemoveTree(Request $request)
     {
         $links = $this->updateLinkTree($request->id);
+
+        return response()->json($links);
+    }
+
+    public function removeLink(Request $request)
+    {
+        $links = $this->removeLinkdb($request->id);
 
         return response()->json($links);
     }
@@ -104,6 +112,28 @@ class LinksController extends Controller
 
     }
 
+    public function showtree($link)
+    {
+        if (count(app()->encoder->decode($link)) > 0) {
+            $decodedId = app()->encoder->decode($link)[0];
+            $user = User::where('id', $decodedId)->first();
+
+            return view('links.tree')->with('user',$user)->with('links',$user->treeLinks);
+        }
+
+    }
+
+    private function removeLinkdb($id)
+    {
+        if (auth()->guest()) {
+            return collect();
+        }
+        $link = Link::where('id','=',$id)->delete();
+
+
+        return auth()->user()->links;
+    }
+
     private function updateLinkTree($id)
     {
         if (auth()->guest()) {
@@ -123,7 +153,7 @@ class LinksController extends Controller
             return collect();
         }
 
-        return auth()->user()->treeLinks;
+        return ['user'=>auth()->user(),'link' => app()->encoder->encode(auth()->user()->id),'tree' => auth()->user()->treeLinks];
     }
 
     private function getLinksForUserOrGuest()

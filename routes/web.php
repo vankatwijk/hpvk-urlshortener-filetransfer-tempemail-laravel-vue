@@ -36,14 +36,19 @@ Route::group(['prefix' => 'api'], function () {
 
     Route::post('/upload', 'LinksController@storeupload');
 
+    Route::post('/upload/avatar', 'UsersController@upload');
+
     Route::get('/links', 'LinksController@index');
 
-    Route::get('/treelinks', 'LinksController@indexTree');
+    Route::get('/treelinks', 'LinksController@indexTrees');
 
     Route::post('/treelink/addRemove', 'LinksController@addRemoveTree');
+
+    Route::post('/removeLink', 'LinksController@removeLink');
 });
 
 Route::get('/{link}', 'LinksController@show');
+Route::get('/tree/{link}', 'LinksController@showtree');
 
 
 Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','twitter|facebook|linkedin|google|github|bitbucket');

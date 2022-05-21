@@ -45,6 +45,7 @@ class User extends Authenticatable
     public function links()
     {
         return $this->hasMany(Link::class)
+            ->where('original','<>','@user')
             ->orderBy('created_at', 'DESC')
             ->with([
                 'clicks' => function ($query) {
@@ -58,6 +59,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Link::class)
             ->where('intree','=','1')
+            ->where('original','<>','@user')
             ->orderBy('created_at', 'DESC')
             ->with([
                 'clicks' => function ($query) {
