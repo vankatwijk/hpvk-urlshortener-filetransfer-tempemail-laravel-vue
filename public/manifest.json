@@ -1,6 +1,7 @@
 {
     "name": "hpvk",
     "short_name": "hpvk",
+    "description": "HPVK.com is the Swiss army knife of tiny web tools.",
     "icons": [{
         "src": "/img/android-chrome-192x192.png",
         "sizes": "192x192",
@@ -12,5 +13,6 @@
     }],
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
-    "display": "standalone"
+    "display": "standalone",
+    "start_url": "hpvk.com"
 }

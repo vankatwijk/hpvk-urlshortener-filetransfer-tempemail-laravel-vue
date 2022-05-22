@@ -1,7 +1,7 @@
 <template>
     <nav class="bg-black text-white shadow py-4 px-4 sm:flex sm:justify-between sm:items-baseline">
         <div class="flex justify-between items-baseline">
-            <a :href="'/'" class="text-teal-700 font-semibold subpixel-antialiased text-xl">HPVK</a>
+            <a :href="'/'" class="text-white font-semibold subpixel-antialiased text-xl">HPVK</a>
             <div class="sm:hidden">
                 <button @click="isOpen = !isOpen" type="button" class="block text-gray-500 hover:text-teal-700 focus:outline-none">
                     <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24" alignment-baseline="bottom">
@@ -16,7 +16,7 @@
             <a v-if="!this.user" :href="'/login'" class="block hover:text-teal-700 py-1 sm:py-0 sm:ml-5">Login</a>
             <a v-if="!this.user" :href="'/register'" class="block hover:text-teal-700 py-1 sm:py-0 sm:ml-5">Register</a>
 
-            <a v-if="this.user" :href="'/tree'" class="block hover:text-teal-700 py-1 sm:py-0 sm:ml-5"><i class="fas fa-tree text-xl"></i>  Link Tree</a>
+            <a v-if="this.user" :href="'/tree'" class="block hover:text-teal-700 py-1 sm:py-0 sm:ml-5">Link Tree</a>
             <a v-if="this.user" :href="'/home'" class="block hover:text-teal-700 py-1 sm:py-0 sm:ml-5">Home</a>
             <a v-if="this.user" :href="'/logout'" class="block hover:text-teal-700 py-1 sm:py-0 sm:ml-5">Logout</a>
         </div>
