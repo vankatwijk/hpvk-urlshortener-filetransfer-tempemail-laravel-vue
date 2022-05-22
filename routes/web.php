@@ -51,7 +51,7 @@ Route::group(['prefix' => 'api'], function () {
 });
 
 Route::get('/{link}', 'LinksController@show');
-Route::get('/tree/{link}', 'LinksController@showtree');
+Route::get('/t/{link}', 'LinksController@showtree');
 
 
 Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
