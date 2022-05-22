@@ -1,8 +1,6 @@
 # Laravel URL Shortener
 
-[![Build Status](https://github.com/eacdev/laravel-url-shortener/workflows/CI/badge.svg)](https://github.com/eacdev/laravel-url-shortener/actions)
-
-[Live Demo](http://138.197.164.139/)
+[Live Demo](https://hpvk.com/)
 
 ## Introduction
 This is a URL shortener featuring a Laravel backend and a a Vue.js frontend.
