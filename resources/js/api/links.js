@@ -41,6 +41,10 @@ export default {
         return client.get('treelinks')
     },
 
+    getAllClicksForLink(link_id) {
+        return client.get('/showclick/' + link_id)
+    },
+
     treeLink() {
         return client.get('treeLink')
     }

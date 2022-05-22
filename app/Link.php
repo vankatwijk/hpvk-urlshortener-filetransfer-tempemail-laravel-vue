@@ -38,12 +38,29 @@ class Link extends Model
         abort(404);
     }
 
-    public function addClick($date)
+    public function addClick($date,$currentUserInfo)
     {
-        $this->clicks()->create([
-            'link_id' => $this->id,
-            'created_at' => $date,
-        ]);
+        if($currentUserInfo == false){
+            $this->clicks()->create([
+                'link_id' => $this->id,
+                'created_at' => $date,
+            ]);
+
+        }else{
+            $this->clicks()->create([
+                'link_id' => $this->id,
+                'ip' => $currentUserInfo->ip,
+                'countryName' => $currentUserInfo->countryName,
+                'countryCode' => $currentUserInfo->countryCode,
+                'regionCode' => $currentUserInfo->regionCode,
+                'latitude' => $currentUserInfo->latitude,
+                'longitude' => $currentUserInfo->longitude,
+                'timezone' => $currentUserInfo->timezone,
+                'created_at' => $date,
+            ]);
+
+        }
+
 
         //TODO: Job queue instead, faster redirection
     }

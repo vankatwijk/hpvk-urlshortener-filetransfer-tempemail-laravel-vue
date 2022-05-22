@@ -17,6 +17,7 @@ use Laravel\Socialite\Facades\Socialite;
 Route::get('/', 'LinksController@create');
 Route::get('/policy', 'LinksController@policy');
 Route::get('/terms', 'LinksController@terms');
+Route::get('/blog', 'LinksController@blog');
 Route::get('/fbdatadeletion', 'LinksController@datadeletion');
 
 Auth::routes([
@@ -37,6 +38,8 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('/upload', 'LinksController@storeupload');
 
     Route::post('/upload/avatar', 'UsersController@upload');
+
+    Route::get('/showclick/{link_id}', 'LinksController@showclick');
 
     Route::get('/links', 'LinksController@index');
 

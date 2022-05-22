@@ -32,10 +32,10 @@
 
 <div id="app">
     
-    <video autoplay="" loop="" muted="" poster="https://www.pexels.com/assets/videos/free-videos-7daa2ef41a140f70c757ce91913a4ecb90570b7d7cd2b401bae868350e02c83a.jpg">
+    {{-- <video autoplay="" loop="" muted="" poster="https://www.pexels.com/assets/videos/free-videos-7daa2ef41a140f70c757ce91913a4ecb90570b7d7cd2b401bae868350e02c83a.jpg">
         <source src="https://static.pexels.com/lib/videos/free-videos.mp4" type="video/mp4">
         <source src="https://static.pexels.com/lib/videos/free-videos.webm" type="video/webm">
-    </video>
+    </video> --}}
 
     @guest()
         <navigation-bar :user="''"></navigation-bar>
@@ -47,9 +47,21 @@
         @yield('content')
     </main>
 </div>
+
+<div class="footer-links">
+    <a href="{{env('APP_URL')}}'/policy'" target="_blank">policy <i class="fab fa-fingerprint"></i></a>
+    <a href="{{env('APP_URL')}}'/terms'" target="_blank">Terms <i class="fab fa-file"></i></a>
+    <a href="{{env('APP_URL')}}'/blog'" target="_blank">Blog <i class="fab fa-file"></i></a>
+    <a href="https://vanniks.com" target="_blank">Vanniks <i class="fab fa-egg"></i></a>
+</div>
+
+</div>
 </body>
 
 <style>
+    .footer-links {
+        display: none;
+    }
     video {
         width: 100%;
         height: 100%;

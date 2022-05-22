@@ -46,6 +46,8 @@ Vue.component('navigation-bar', require('./components/layout/NavigationBar').def
 Vue.component('dash-bar', require('./components/layout/DashBar').default)
 Vue.component('shorten-link-page', require('./components/landing/ShortenLinkPage').default)
 Vue.component('links-list', require('./components/common/LinksList').default)
+Vue.component('click-list', require('./components/common/ClickList').default)
+Vue.component('post', require('./components/common/Post').default)
 Vue.component('previous-links-list-item', require('./components/landing/PreviousLinksListItem').default)
 Vue.component('links-list-item', require('./components/dashboard/LinksListItem').default)
 Vue.component('basic-links-list-item', require('./components/dashboard/BasicLinksListItem').default)

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-row rounded mt-5 bg-white p-6 shadow w-full items-center cursor-pointer pointer select-none"
+    <div class="flex flex-row rounded mt-5 bg-white p-6 shadow w-full items-center cursor-pointer pointer select-none overflow-hidden"
          :class="{ 'selected' : selected }">
 
         <div class="flex flex-col items-center bg-teal-100 text-teal-500 p-3 rounded">

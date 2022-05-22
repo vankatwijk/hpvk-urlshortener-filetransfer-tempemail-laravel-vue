@@ -16,6 +16,12 @@ class CreateClicksTable extends Migration
         Schema::create('clicks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('link_id');
+            $table->string('countryName')->nullable();
+            $table->string('countryCode')->nullable();
+            $table->string('regionCode')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            $table->string('timezone')->nullable();
             $table->timestamps();
         });
     }

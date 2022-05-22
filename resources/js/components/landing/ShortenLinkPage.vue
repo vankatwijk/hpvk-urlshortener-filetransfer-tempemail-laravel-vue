@@ -17,7 +17,8 @@
                     <template #title>Hey! HPVK.com is the Swiss army knife of tiny web tools.</template>
                     <template #body>
                         <p>This feels empty...</p><br/>
-                        <p>Start by adding some links or upload a file to transfer(48hrs) with our tiny url👆</p>
+                        <p>Start by adding some links(Login first for 📈)</p>
+                        <p>or upload a file to transfer(48hrs) with our tiny url👆</p>
                         <p>Then view your dashboard for some amazing insights <span>📈</span></p>
                         <p>Also try our Link tree from the dashboard <span>🌳</span></p>
                     </template>
@@ -25,8 +26,49 @@
             </div>
         </transition>
 
+        <transition appear name="fade" mode="out-in">
+
+          <div class="flex flex-wrap md:flex-no-wrap bg-grey-lighter mx-auto md:w-2/3">
+            <div class=" mt-10 w-full md:w-3/6 p-2">
+
+              <post
+              :post='{
+                img:"https://images.unsplash.com/photo-1461685265823-f8d5d0b08b9b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470",
+                title:"Track if your link",
+                body:"No more, I didnt see your link. Login to our Dashboard first then generate a link, once the link has been opened you will be able to view where and when it was opened.",
+                tag1:"#Link",
+                tag2:"#track",
+                tag3:"#insight"
+              }'
+              ></post>
+
+            </div>
+            <div class=" mt-10 w-full md:w-3/6 p-2">
+
+              <post
+              :post='{
+                img:"https://images.unsplash.com/photo-1572982798826-c61f53492e5e?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1407",
+                title:"Link Tree",
+                body:"What the hell is a link tree, This your custom Page on the internet containing your image and some links to your social media , everytime a link is clicked you will get usefull insight into your socials.",
+                tag1:"#LinkTree",
+                tag2:"#webpage",
+                tag3:"#links"
+              }'
+              ></post>
+
+            </div>
+          </div>
+
+        </transition>
+
+
         <div class="flex flex-row text-gray-600 justify-center mt-12">
             <a href="https://github.com/vankatwijk/hpvk-urlshortener-filetransfer-tempemail-laravel-vue">View the code on <i class="fab fa-github"></i></a>
+        </div>
+        <div class="flex flex-row text-gray-600 justify-center mt-12">
+            <a :href="APP_URL+'/policy'">policy <i class="fab fa-fingerprint"></i></a>
+            <a :href="APP_URL+'/terms'">Terms <i class="fab fa-file"></i></a>
+            <a href="https://vanniks.com">Vanniks <i class="fab fa-egg"></i></a>
         </div>
 
         <div class="flex flex-row text-gray-600 justify-center mt-12">
@@ -45,6 +87,7 @@
 
     data () {
       return {
+        APP_URL: process.env.MIX_APP_URL,
         previousLinks: [],
       }
     },

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Link;
 use App\User;
+use App\Click;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests\ShowShortLink;
@@ -20,6 +21,13 @@ class LinksController extends Controller
 
         return response()->json($links);
     }
+    
+    public function showclick(Request $request, $link_id)
+    {
+        $clicks = $this->getclicksForLink($link_id);
+
+        return response()->json($clicks);
+    }
 
     public function indexTrees()
     {
@@ -31,6 +39,11 @@ class LinksController extends Controller
     public function policy()
     {
         return view('pages.policy');
+    }
+
+    public function blog()
+    {
+        return view('links.create');
     }
 
     public function terms()
@@ -81,11 +94,29 @@ class LinksController extends Controller
         return response()->json(new LinkResource($link));
     }
 
+    public function getIp(){
+        foreach (array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key){
+            if (array_key_exists($key, $_SERVER) === true){
+                foreach (explode(',', $_SERVER[$key]) as $ip){
+                    $ip = trim($ip); // just to be safe
+                    if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) !== false){
+                        return $ip;
+                    }
+                }
+            }
+        }
+        return request()->ip(); // it will return server ip when no client ip found
+    }
+
     public function show(ShowShortLink $request, Link $link)
     {
         $data = $request->validated();
+        
+        $ip = $this->getIp(); /* Static IP address */
+        $currentUserInfo = \Location::get($ip);
 
-        $link->addClick(Carbon::now());
+        $link->addClick(Carbon::now(),$currentUserInfo);
+        
 
         if($link->original == '@file'){
 
@@ -121,6 +152,16 @@ class LinksController extends Controller
             return view('links.tree')->with('user',$user)->with('links',$user->treeLinks);
         }
 
+    }
+
+    private function getclicksForLink($id)
+    {
+        if (auth()->guest()) {
+            return [];
+        }
+        $clicks = Click::where('link_id','=',$id)->latest()->take(5)->get();
+
+        return $clicks;
     }
 
     private function removeLinkdb($id)
