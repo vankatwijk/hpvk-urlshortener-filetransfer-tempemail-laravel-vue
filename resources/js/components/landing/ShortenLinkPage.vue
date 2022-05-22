@@ -49,7 +49,7 @@
               :post='{
                 img:"https://images.unsplash.com/photo-1572982798826-c61f53492e5e?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1407",
                 title:"Link Tree",
-                body:"What the hell is a link tree, This your custom Page on the internet containing your image and some links to your social media , everytime a link is clicked you will get usefull insight into your socials.",
+                body:"What the hell is a link tree, This is your custom Page on the internet containing your image and some links to your social media , everytime a link is clicked you will get usefull insight into your socials.",
                 tag1:"#LinkTree",
                 tag2:"#webpage",
                 tag3:"#links"
