@@ -4,7 +4,7 @@
           :class="{ 'selected' : selected }">
 
           <div class="flex flex-col items-center bg-red-100 text-teal-500 p-3 ml-3 rounded" >
-              <i class="fas fa-link text-xl"></i>
+              <img :src="'https://s2.googleusercontent.com/s2/favicons?domain='+link.original" alt="website ico" />
           </div>
           <div class="flex flex-col ml-6 sm:ml-8">
               <span class="text-white mt-1 hover:underline">{{ link.original | truncate(30) }}</span>
