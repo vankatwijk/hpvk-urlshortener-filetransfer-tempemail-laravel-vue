@@ -6,6 +6,10 @@
             <img v-if="!user.avatar" class="flex md:w-1/12 p-2 mb-6 mx-auto shadow rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="Profile image"/>
             <img v-if="user.avatar" class="flex md:w-1/12 p-2 mb-6 mx-auto shadow rounded-full" :src="APP_URL+'/storage/'+user.avatar" alt="Profile image"/>
             
+            <span class="flex md:w-4/12 bg-white p-2 mb-6 mx-auto rounded-full">
+              {{user.username}}
+            </span>
+
           </div>
 
         </transition>
