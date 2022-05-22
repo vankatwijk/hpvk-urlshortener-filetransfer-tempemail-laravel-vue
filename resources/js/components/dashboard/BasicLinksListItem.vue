@@ -1,6 +1,6 @@
 <template>
     <a :href="'/' + link.short"  target="_blank" class="text-teal-600 font-semibold hover:underline">
-      <div class="flex flex-row rounded mt-5 bg-white p-6 shadow w-full items-center cursor-pointer pointer select-none overflow-hidden"
+      <div class="flex flex-row rounded mt-5 text-teal bg-white p-6 shadow w-full items-center cursor-pointer pointer select-none overflow-hidden selected"
           :class="{ 'selected' : selected }">
 
           <div class="flex flex-col items-center bg-red-100 text-teal-500 p-3 ml-3 rounded" >
