@@ -10,8 +10,8 @@
         </button>
 
         <div class="flex flex-col ml-6 w-full">
-            <a :href="'/' + link.short" class="text-teal-600 font-semibold">{{ APP_URL }}/{{ link.short }}</a>
-            <a :href="link.original" class="text-teal-500">{{ link.original | truncate(25) }}</a>
+            <a :href="'/' + link.short"  target="_blank" class="text-teal-600 font-semibold">{{ APP_URL }}/{{ link.short }}</a>
+            <a :href="link.original"  target="_blank" class="text-teal-500">{{ link.original | truncate(25) }}</a>
         </div>
     </div>
 </template>

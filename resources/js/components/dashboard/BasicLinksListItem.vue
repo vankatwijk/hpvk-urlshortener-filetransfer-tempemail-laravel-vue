@@ -1,5 +1,5 @@
 <template>
-    <a :href="'/' + link.short" class="text-teal-600 font-semibold hover:underline">
+    <a :href="'/' + link.short"  target="_blank" class="text-teal-600 font-semibold hover:underline">
       <div class="flex flex-row rounded mt-5 bg-white p-6 shadow w-full items-center cursor-pointer pointer select-none overflow-hidden"
           :class="{ 'selected' : selected }">
 

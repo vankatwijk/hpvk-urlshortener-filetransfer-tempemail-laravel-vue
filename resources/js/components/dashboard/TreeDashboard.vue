@@ -11,7 +11,7 @@
             <input @change="upload" type="file" style="display:none;" id="file" name="file"/>
 
             <span class="flex md:w-4/12 bg-white p-2 mb-6 mx-auto shadow rounded-full">
-              <a :href="APP_URL+'/tree/'+treeLink" class="text-blue-500 hover:underline">{{APP_URL+'/tree/'+treeLink}}</a>
+              <a :href="APP_URL+'/tree/'+treeLink" target="_blank" class="text-blue-500 hover:underline">{{APP_URL+'/tree/'+treeLink}}</a>
             </span>
           </div>
 

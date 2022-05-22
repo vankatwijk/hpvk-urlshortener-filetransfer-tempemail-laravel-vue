@@ -15,8 +15,8 @@
             <p class="mt-1">0</p>
         </div>
         <div class="flex flex-col ml-6 sm:ml-8">
-            <a :href="'/' + link.short" class="text-teal-600 font-semibold hover:underline">{{ APP_URL }}/{{ link.short }}</a>
-            <a :href="link.original" class="text-teal-500 mt-1 hover:underline">{{ link.original | truncate(30) }}</a>
+            <a :href="'/' + link.short"  target="_blank" class="text-teal-600 font-semibold hover:underline">{{ APP_URL }}/{{ link.short }}</a>
+            <a :href="link.original"  target="_blank" class="text-teal-500 mt-1 hover:underline">{{ link.original | truncate(30) }}</a>
         </div>
     </div>
 </template>

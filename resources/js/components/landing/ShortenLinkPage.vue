@@ -66,9 +66,9 @@
             <a href="https://github.com/vankatwijk/hpvk-urlshortener-filetransfer-tempemail-laravel-vue">View the code on <i class="fab fa-github"></i></a>
         </div>
         <div class="flex flex-row text-gray-600 justify-center mt-12">
-            <a :href="APP_URL+'/policy'">policy <i class="fab fa-fingerprint"></i></a>
-            <a :href="APP_URL+'/terms'">Terms <i class="fab fa-file"></i></a>
-            <a href="https://vanniks.com">Vanniks <i class="fab fa-egg"></i></a>
+            <a :href="APP_URL+'/policy'" target="_blank">policy <i class="fab fa-fingerprint"></i></a>
+            <a :href="APP_URL+'/terms'" target="_blank">Terms <i class="fab fa-file"></i></a>
+            <a href="https://vanniks.com" target="_blank">Vanniks <i class="fab fa-egg"></i></a>
         </div>
 
         <div class="flex flex-row text-gray-600 justify-center mt-12">
