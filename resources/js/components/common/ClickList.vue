@@ -45,7 +45,24 @@
 
     methods: {
     },
+    watch: {
+        // whenever question changes, this function will run
+        async link_id(newID, oldID) {
+          try {
+            const response = await LinksClient.getAllClicksForLink(newID)
+            this.clicks = response.data
 
+          } catch (error) {
+            this.$swal({
+              type: 'error',
+              title: 'Oops...',
+              text: 'There was an error loading your clicks.' + error,
+            })
+          } finally {
+            this.isLoading = false
+          }
+        }
+    },
     async mounted () {
       try {
         const response = await LinksClient.getAllClicksForLink(this.link_id)
@@ -61,6 +78,7 @@
         this.isLoading = false
       }
     }
+
   }
 </script>
 

@@ -39,7 +39,7 @@
                 </transition>
                 <transition appear name="fade" mode="out-in">
 
-                    <click-list v-if="selectedLink.totalClicks > 0" :link_id="selectedLink.id"></click-list>
+                    <click-list v-if="selectedLink.totalClicks > 0" :key="selectedLink.id" :link_id="selectedLink.id"></click-list>
                     
                 </transition>
 
