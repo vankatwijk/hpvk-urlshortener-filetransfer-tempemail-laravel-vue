@@ -1,13 +1,13 @@
 <template>
     <a :href="'/' + link.short"  target="_blank" class="text-teal-600 font-semibold hover:underline">
-      <div class="flex flex-row rounded mt-5 text-teal bg-white p-6 shadow w-full items-center cursor-pointer pointer select-none overflow-hidden selected"
+      <div class="flex flex-row rounded mt-5 text-teal bg-white p-4 shadow w-full items-center cursor-pointer pointer select-none overflow-hidden selected"
           :class="{ 'selected' : selected }">
 
-          <div class="flex flex-col items-center bg-red-100 text-teal-500 p-3 ml-3 rounded" >
-              <img :src="'https://s2.googleusercontent.com/s2/favicons?domain='+link.original" alt="website ico" />
+          <div class="flex flex-col items-center bg-red-100 text-teal-500 h-8 ml-3 rounded" >
+              <img :src="'https://s2.googleusercontent.com/s2/favicons?domain='+link.original" alt="ico" />
           </div>
           <div class="flex flex-col ml-6 sm:ml-8">
-              <span class="text-white mt-1 hover:underline">{{ link.original | truncate(30) }}</span>
+              <span class="text-white mt-1 hover:underline">{{ filterProtocol(link.original) | truncate(60) }}</span>
           </div>
       </div>
     </a>
@@ -28,7 +28,12 @@
     },
 
     methods: {
-      
+      filterProtocol(url){
+
+        let cleanurl = url.match('^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/?\n]+)');
+        return cleanurl[1];
+
+      },
       async removeLink (link) {
 
         try {
