@@ -1,16 +1,16 @@
 <template>
-    <div class="flex flex-row rounded mt-5 bg-white p-6 shadow w-full items-center cursor-pointer pointer select-none overflow-hidden"
+    <div class="flex flex-row rounded mt-5 bg-white p-2 shadow w-full items-center cursor-pointer pointer select-none overflow-hidden"
          :class="{ 'selected' : selected }">
 
-        <div class="flex flex-col items-center bg-teal-100 text-teal-500 p-3 rounded">
+        <div class="flex flex-col items-center bg-teal-100 text-teal-500 p-2 rounded">
             <i class="fas fa-eye text-xl"></i>
             <p class="mt-1">{{ link.totalClicks }}</p>
         </div>
-        <div class="flex flex-col items-center bg-teal-100 text-teal-500 p-3 ml-3 rounded" @click="addRemoveTree(link)">
+        <div class="flex flex-col items-center bg-teal-100 text-teal-500 p-2 ml-3 rounded" @click="addRemoveTree(link)">
             <i class="fas fa-tree text-xl"></i>
             <p class="mt-1">{{ link.intree }}</p>
         </div>
-        <div class="flex flex-col items-center bg-red-100 text-teal-500 p-3 ml-3 rounded" @click="removeLink(link)">
+        <div class="flex flex-col items-center bg-red-100 text-teal-500 p-2 ml-3 rounded" @click="removeLink(link)">
             <i class="fas fa-trash text-xl"></i>
             <p class="mt-1">0</p>
         </div>

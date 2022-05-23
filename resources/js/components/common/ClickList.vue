@@ -4,23 +4,23 @@
             Clicks
         </p>
 
-        <div v-for="click in clicks" :key="click.id" class="flex flex-row rounded mt-5 text-teal-500 bg-white p-6 shadow w-full items-center cursor-pointer pointer select-none overflow-hidden">
-          <div class="w-2/6 p-2">
-            <div class="flex flex-col items-center bg-teal-100 text-teal-500 p-2 rounded">
-                <i class="fas fa-clock text-xl"></i>
-                <p class="mt-1">{{click.created_at | momentDay}}</p>
+        <div v-for="click in clicks" :key="click.id" class="flex flex-row rounded mt-5 text-teal-500 bg-white p-2 shadow w-full items-center cursor-pointer pointer select-none overflow-hidden">
+          <div class="w-2/6 p-1">
+            <div class="flex flex-col items-center bg-teal-100 text-teal-500 p-1 rounded">
+                <!--i class="fas fa-clock text-xl"></i-->
+                <p class="mt-1">{{click.created_at | momentDayTime}}</p>
             </div>
           </div>
-          <div class="w-2/6 p-2">
-            <div class="flex flex-col items-center bg-teal-100 text-teal-500 p-2 rounded">
+          <div class="w-2/6 p-1">
+            <div class="flex flex-col items-center bg-teal-100 text-teal-500 p-1 rounded">
                 <i class="fas fa-globe-europe text-xl"></i>
                 <p class="mt-1" v-if="click.countryName">{{click.countryName}}</p>
             </div>
           </div>
-          <div class="w-2/6 p-2">
+          <div class="w-2/6 p-1">
 
-            <div class="flex flex-col items-center bg-red-100 text-teal-500 p-2 rounded">
-                <i class="fab fa-grav text-xl"></i>
+            <div class="flex flex-col items-center bg-red-100 text-teal-500 p-1 rounded">
+                <!--i class="fab fa-grav text-xl"></i-->
                 <p class="mt-1" v-if="click.latitude">{{click.latitude +" "+ click.longitude}}</p>
             </div>
 

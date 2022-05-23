@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ShowShortLink;
 use App\Http\Requests\StoreShortLink;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Requests\StoreShortLinkUpload;
 use App\Http\Resources\Link as LinkResource;
 
@@ -128,7 +129,10 @@ class LinksController extends Controller
                 if($imneType == "image/png" || $imneType == "image/jpg" || $imneType == "image/jpeg"){
                     $base64 = base64_encode(Storage::disk('public')->get('files/'.$link->folder.'/'.$link->file_name));
                     $image_data = 'data:'.mime_content_type($full_path) . ';base64,' . $base64;
-                    return view('viewer.image')->with('imageData',$image_data);
+                    
+                    //this will generate an image that you cna use inside an email or just right click to download
+                    return response()->file($full_path, ['Content-Type',$imneType]);
+                    //return view('viewer.image')->with('imageData',$image_data);
                 }
 
                 //make file downloadable
