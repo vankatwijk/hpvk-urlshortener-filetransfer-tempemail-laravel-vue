@@ -7,9 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>HPVK.com | the Swiss army knife of tiny web tools</title>
-    <meta name="description" content="HPVK.com the Swiss army knife of tiny web tools, Free URL shortener shortens your unwieldly links into more manageable and useable URLs plus our temp file upload service you have all you need in one place">
-    <meta name="keywords" content="hpvk tinyurl url save share shorten analyze web tools file transfer hendrikus pieter van katwijk">
+    <title>Tiny web tools | URL shortener | File transfer | Link tracking</title>
+    <meta name="description" content="Tiny web tools, URL shortener, shortens your links into more manageable and useable URLs with tracking and file transfer / upload all you need in one place">
+    <meta name="keywords" content="hpvk tinyurl url save share shorten analyze web tools file transfer upload url tracking email tracking">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -27,8 +27,55 @@
 </head>
 <body class="bg-gray-200 font-sans">
 
-<div style="display:none;">HPVK.com the Swiss army knife of tiny web tools, Free URL shortener shortens your unwieldly links into more manageable and useable URLs</div>
-<div style="display:none;">hpvk is the simplest way to send your files around the world. Share large files and photos. Transfer up to 2GB free. File sharing made easy!</div>
+<div style="display:none;">
+
+
+
+    <h1>Tiny web tools | URL shortener | File transfer | Link tracking</h1><p>Free URL shortener shortens your links into more manageable and useable URLs</p>
+    <p>Shorten URLs and and track when and where they were clicked</p>
+    <p>hpvk is the simplest way to send your files around the world. Share large files and photos. Transfer up to 2GB free. File sharing made easy!</p>
+
+    <div>
+        <form type="post" action="/api/shorten">
+            <label for="url">URL to shorten</label><br>
+            <input type="text" id="url" name="url" value=""><br>
+            <input type="submit" value="Submit">
+            </form> 
+    </div>
+
+    <div class="blog">
+
+        <div class="post">
+            <span><img src="/img/post/short_link.webp" alt="shorten link"></span>
+            <h2>Track your shortened link</h2>
+            <p>No more, I didnt see your link. Login to our Dashboard first then generate a link, once the link has been opened you will be able to view where and when it was opened. We track Location, Time, Device and IP .</p>
+            <p><a href="{{env('APP_URL')}}'/login'" target="_blank">Start shortening</a></p>
+        </div>
+
+        <div class="post">
+            <span><img src="/img/post/link_tree.webp" alt="link tree"></span>
+            <h2>Link Tree</h2>
+            <p>What the hell is a link tree, This is your custom Page on the internet containing your image and some links to your social media , everytime a link is clicked you will get usefull insight into your socials. Your link tree is highly customizable and you can even add products and files.</p>
+            <p><a href="{{env('APP_URL')}}'/login'" target="_blank">Start building a link tree</a></p>
+        </div>
+
+        <div class="post">
+            <span><img src="/img/post/email_tracking.webp" alt="email tracking"></span>
+            <h2>Email Tracking</h2>
+            <p>Upload an image png/jpeg and use the generated tinyurl within your email as a url image attachment, when the email is openned we will track it and you can view all the information in your dashboard.</p>
+            <p><a href="{{env('APP_URL')}}'/login'" target="_blank">Start tracking emails</a></p>
+        </div>
+
+        <div class="post">
+            <span><img src="/img/post/file_transfer.webp" alt="file transfer"></span>
+            <h2>Transfer files</h2>
+            <p>Need to transfer a file to a friend or to yourself in a snap, then use our file transfer system with no upload limits, we will keep the file on our servers for 48hrs then it will be deleted forever from our servers.you are also able to track when the file was accessed through our dashboard</p>
+            <p><a href="{{env('APP_URL')}}'/login'" target="_blank">Start transfering</a></p>
+        </div>
+
+    </div>
+
+</div>
 
 <div id="app">
     
@@ -36,10 +83,32 @@
     <main role="main" class="container mt-10 mx-auto">
         @yield('content')
     </main>
+
+<div class="footer-links">
+    <a href="{{env('APP_URL')}}'/policy'" target="_blank">policy <i class="fab fa-fingerprint"></i></a>
+    <a href="{{env('APP_URL')}}'/terms'" target="_blank">Terms <i class="fab fa-file"></i></a>
+    <a href="{{env('APP_URL')}}'/blog'" target="_blank">Blog <i class="fab fa-file"></i></a>
+    <a href="https://vanniks.com" target="_blank">Vanniks <i class="fab fa-egg"></i></a>
+    <a href="https://vanniks.com" target="_blank">created by hendrikus pieter van katwijk<i class="fab fa-egg"></i></a>
+</div>
+
 </div>
 </body>
 
 <style>
+    .footer-links {
+        display: none;
+    }
+    video {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        background: #232a34;
+        position: absolute;
+        z-index: -1;
+        filter: blur(15px);
+    }
 </style>
 <script>
     // we check if the browser supports ServiceWorkers

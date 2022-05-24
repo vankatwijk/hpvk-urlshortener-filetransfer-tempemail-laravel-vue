@@ -33,7 +33,7 @@
 
 
 
-    <h1>Tiny web tools | URL shortener | File transfer | Link tracking</h1><p>Free URL shortener shortens your unwieldly links into more manageable and useable URLs</p>
+    <h1>Tiny web tools | URL shortener | File transfer | Link tracking</h1><p>Free URL shortener shortens your links into more manageable and useable URLs</p>
     <p>Shorten URLs and and track when and where they were clicked</p>
     <p>hpvk is the simplest way to send your files around the world. Share large files and photos. Transfer up to 2GB free. File sharing made easy!</p>
 
