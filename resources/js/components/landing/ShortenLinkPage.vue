@@ -28,7 +28,8 @@
 
         <transition appear name="fade" mode="out-in">
 
-          <div class="flex flex-wrap md:flex-no-wrap bg-grey-lighter mx-auto md:w-2/3">
+          <div class="flex flex-wrap bg-grey-lighter mx-auto md:w-2/3">
+
             <div class=" mt-10 w-full md:w-3/6 p-2">
 
               <post
@@ -67,6 +68,21 @@
                 tag1:"#Email",
                 tag2:"#tracking",
                 tag3:""
+              }'
+              ></post>
+
+            </div>
+
+            <div class=" mt-10 w-full md:w-3/6 p-2">
+
+              <post
+              :post='{
+                img:"/img/post/file_transfer.webp",
+                title:"Transfer files",
+                body:"Need to transfer a file to a friend or to yourself in a snap, then use our file transfer system with no upload limits, we will keep the file on our servers for 48hrs then it will be deleted forever from our servers.",
+                tag1:"#file",
+                tag2:"#transfer",
+                tag3:"tracking"
               }'
               ></post>
 

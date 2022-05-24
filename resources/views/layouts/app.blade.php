@@ -10,8 +10,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Tiny web tools | URL shortener | File transfer | Link tracking</title>
-    <meta name="description" content="Tiny web tools, Free URL shortener, shortens your cumbersome links into more manageable and useable URLs plus our temp file upload service you have all you need in one place">
-    <meta name="keywords" content="hpvk tinyurl url save share shorten analyze web tools file transfer url tracking email tracking">
+    <meta name="description" content="Tiny web tools, URL shortener, shortens your links into more manageable and useable URLs with tracking and file transfer / upload all you need in one place">
+    <meta name="keywords" content="hpvk tinyurl url save share shorten analyze web tools file transfer upload url tracking email tracking">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -49,23 +49,30 @@
 
         <div class="post">
             <span><img src="/img/post/short_link.webp" alt="shorten link"></span>
-            <h1>Track your shortened link</h1>
+            <h2>Track your shortened link</h2>
             <p>No more, I didnt see your link. Login to our Dashboard first then generate a link, once the link has been opened you will be able to view where and when it was opened.</p>
             <p><a href="{{env('APP_URL')}}'/login'" target="_blank">Start shortening</a></p>
         </div>
 
         <div class="post">
             <span><img src="/img/post/link_tree.webp" alt="link tree"></span>
-            <h1>Link Tree</h1>
+            <h2>Link Tree</h2>
             <p>What the hell is a link tree, This is your custom Page on the internet containing your image and some links to your social media , everytime a link is clicked you will get usefull insight into your socials.</p>
-            <p><a href="{{env('APP_URL')}}'/login'" target="_blank">Start shortening</a></p>
+            <p><a href="{{env('APP_URL')}}'/login'" target="_blank">Start building a link tree</a></p>
         </div>
 
         <div class="post">
             <span><img src="/img/post/email_tracking.webp" alt="email tracking"></span>
-            <h1>Email Tracking</h1>
+            <h2>Email Tracking</h2>
             <p>Upload an image png/jpeg and use the generated tinyurl within your email as a url image attachment, when the email is openned we will track it and you can view all the information in your dashboard.</p>
-            <p><a href="{{env('APP_URL')}}'/login'" target="_blank">Start shortening</a></p>
+            <p><a href="{{env('APP_URL')}}'/login'" target="_blank">Start tracking emails</a></p>
+        </div>
+
+        <div class="post">
+            <span><img src="/img/post/file_transfer.webp" alt="file transfer"></span>
+            <h2>Transfer files</h2>
+            <p>Need to transfer a file to a friend or to yourself in a snap, then use our file transfer system with no upload limits, we will keep the file on our servers for 48hrs then it will be deleted forever from our servers.</p>
+            <p><a href="{{env('APP_URL')}}'/login'" target="_blank">Start transfering</a></p>
         </div>
 
     </div>
