@@ -50,14 +50,14 @@
         <div class="post">
             <span><img src="/img/post/short_link.webp" alt="shorten link"></span>
             <h2>Track your shortened link</h2>
-            <p>No more, I didnt see your link. Login to our Dashboard first then generate a link, once the link has been opened you will be able to view where and when it was opened.</p>
+            <p>No more, I didnt see your link. Login to our Dashboard first then generate a link, once the link has been opened you will be able to view where and when it was opened. We track Location, Time, Device and IP .</p>
             <p><a href="{{env('APP_URL')}}'/login'" target="_blank">Start shortening</a></p>
         </div>
 
         <div class="post">
             <span><img src="/img/post/link_tree.webp" alt="link tree"></span>
             <h2>Link Tree</h2>
-            <p>What the hell is a link tree, This is your custom Page on the internet containing your image and some links to your social media , everytime a link is clicked you will get usefull insight into your socials.</p>
+            <p>What the hell is a link tree, This is your custom Page on the internet containing your image and some links to your social media , everytime a link is clicked you will get usefull insight into your socials. Your link tree is highly customizable and you can even add products and files.</p>
             <p><a href="{{env('APP_URL')}}'/login'" target="_blank">Start building a link tree</a></p>
         </div>
 
@@ -71,7 +71,7 @@
         <div class="post">
             <span><img src="/img/post/file_transfer.webp" alt="file transfer"></span>
             <h2>Transfer files</h2>
-            <p>Need to transfer a file to a friend or to yourself in a snap, then use our file transfer system with no upload limits, we will keep the file on our servers for 48hrs then it will be deleted forever from our servers.</p>
+            <p>Need to transfer a file to a friend or to yourself in a snap, then use our file transfer system with no upload limits, we will keep the file on our servers for 48hrs then it will be deleted forever from our servers.you are also able to track when the file was accessed through our dashboard</p>
             <p><a href="{{env('APP_URL')}}'/login'" target="_blank">Start transfering</a></p>
         </div>
 

@@ -36,7 +36,7 @@
               :post='{
                 img:"/img/post/short_link.webp",
                 title:"Track your link",
-                body:"No more, I didnt see your link. Login to our Dashboard first then generate a link, once the link has been opened you will be able to view where and when it was opened.",
+                body:"No more, I didnt see your link. Login to our Dashboard first then generate a link, once the link has been opened you will be able to view where and when it was opened. We track Location, Time, Device and IP .",
                 tag1:"#Link",
                 tag2:"#track",
                 tag3:"#insight"
@@ -50,7 +50,7 @@
               :post='{
                 img:"/img/post/link_tree.webp",
                 title:"Link Tree",
-                body:"What the hell is a link tree, This is your custom Page on the internet containing your image and some links to your social media , everytime a link is clicked you will get usefull insight into your socials.",
+                body:"What the hell is a link tree, This is your custom Page on the internet containing your image and some links to your social media , everytime a link is clicked you will get usefull insight into your socials. Your link tree is highly customizable and you can even add products and files.",
                 tag1:"#LinkTree",
                 tag2:"#webpage",
                 tag3:"#links"
@@ -79,7 +79,7 @@
               :post='{
                 img:"/img/post/file_transfer.webp",
                 title:"Transfer files",
-                body:"Need to transfer a file to a friend or to yourself in a snap, then use our file transfer system with no upload limits, we will keep the file on our servers for 48hrs then it will be deleted forever from our servers.",
+                body:"Need to transfer a file to a friend or to yourself in a snap, then use our file transfer system with no upload limits, we will keep the file on our servers for 48hrs then it will be deleted forever from our servers.you are also able to track when the file was accessed through our dashboard",
                 tag1:"#file",
                 tag2:"#transfer",
                 tag3:"tracking"
