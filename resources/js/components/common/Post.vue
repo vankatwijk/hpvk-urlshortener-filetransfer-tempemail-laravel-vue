@@ -1,6 +1,6 @@
 <template>
 
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="bg-white max-w-sm rounded overflow-hidden shadow-lg">
     <img class="w-full" :src="post.img" alt="Sunset in the mountains">
     <div class="px-6 py-4">
       <div class="text-gray-600 font-bold text-xl mb-2">{{post.title}}</div>
