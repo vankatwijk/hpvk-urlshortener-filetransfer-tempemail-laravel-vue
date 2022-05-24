@@ -14,7 +14,7 @@
 
             <div v-if="previousLinks.length === 0" class="md:w-2/3 mt-10 mx-auto">
                 <notification>
-                    <template #title>Hey! HPVK.com is the Swiss army knife of tiny web tools.</template>
+                    <template #title>Hey! HPVK.com is a tiny web tool for shortening and transfering files.</template>
                     <template #body>
                         <p>This feels empty...</p><br/>
                         <p>Start by adding some links(Login first for 📈)</p>
@@ -33,8 +33,8 @@
 
               <post
               :post='{
-                img:"https://images.unsplash.com/photo-1461685265823-f8d5d0b08b9b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470",
-                title:"Track if your link",
+                img:"/img/post/short_link.webp",
+                title:"Track your link",
                 body:"No more, I didnt see your link. Login to our Dashboard first then generate a link, once the link has been opened you will be able to view where and when it was opened.",
                 tag1:"#Link",
                 tag2:"#track",
@@ -47,12 +47,26 @@
 
               <post
               :post='{
-                img:"https://images.unsplash.com/photo-1572982798826-c61f53492e5e?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1407",
+                img:"/img/post/link_tree.webp",
                 title:"Link Tree",
                 body:"What the hell is a link tree, This is your custom Page on the internet containing your image and some links to your social media , everytime a link is clicked you will get usefull insight into your socials.",
                 tag1:"#LinkTree",
                 tag2:"#webpage",
                 tag3:"#links"
+              }'
+              ></post>
+
+            </div>
+            <div class=" mt-10 w-full md:w-3/6 p-2">
+
+              <post
+              :post='{
+                img:"/img/post/email_tracking.webp",
+                title:"Email Tracking",
+                body:"Upload an image png/jpeg and use the generated tinyurl within your email as a url image attachment, when the email is openned we will track it and you can view all the information in your dashboard.",
+                tag1:"#Email",
+                tag2:"#tracking",
+                tag3:""
               }'
               ></post>
 
@@ -74,7 +88,7 @@
         <div class="flex flex-row text-gray-600 justify-center mt-12">
             <a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/hendrikus">
               <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
-              <img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee">
+              <img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" width="27px" alt="Buy me a coffee">
               <span style="margin-left:5px">Buy me a coffee</span>
             </a>
         </div>
