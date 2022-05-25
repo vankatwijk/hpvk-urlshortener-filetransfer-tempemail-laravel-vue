@@ -2,28 +2,28 @@
     <div class="flex flex-row rounded mt-5 bg-white p-2 shadow w-full items-center cursor-pointer pointer select-none overflow-hidden"
          :class="{ 'selected' : selected }">
 
+        <div class="flex flex-col items-center bg-teal-100 text-teal-500 p-2 h-16 mr-2 rounded" :style="(link.bg_color ? 'background-color:'+link.bg_color : '')">
+        </div>
+
         <div class="flex flex-col items-center bg-teal-100 text-teal-500 p-2 rounded">
             <i class="fas fa-eye text-xl"></i>
             <p class="mt-1">{{ link.totalClicks }}</p>
         </div>
-        <div class="flex flex-col items-center bg-teal-100 text-teal-500 p-2 ml-3 rounded" @click="addRemoveTree(link)">
-            <i class="fas fa-tree text-xl"></i>
+        <div class="flex flex-col items-center bg-teal-100 text-teal-500 p-2 ml-3 rounded" @click="showOptions(link)">
+            <i class="fas fa-edit text-xl"></i>
             <p class="mt-1">{{ link.intree }}</p>
         </div>
-        <div class="flex flex-col items-center bg-red-100 text-teal-500 p-2 ml-3 rounded" @click="removeLink(link)">
-            <i class="fas fa-trash text-xl"></i>
-            <p class="mt-1">0</p>
-        </div>
-        <div class="flex flex-col ml-6 sm:ml-8">
+        <div class="flex flex-col ml-6 sm:ml-3">
             <a :href="'/' + link.short"  target="_blank" class="text-teal-600 font-semibold hover:underline">{{ APP_URL }}/{{ link.short }}</a>
-            <a :href="link.original"  target="_blank" class="text-teal-500 mt-1 hover:underline">{{ link.original | truncate(30) }}</a>
+
+
+            <a v-if="link.label" :href="link.original"  target="_blank" class="text-teal-500 mt-1 hover:underline">{{ link.label | truncate(30) }}</a>
+            <a v-else :href="link.original"  target="_blank" class="text-teal-500 mt-1 hover:underline">{{ link.original | truncate(30) }}</a>
         </div>
     </div>
 </template>
 
 <script>
-  import LinksClient from '../../api/links'
-
   export default {
     name: 'LinksListItem',
 
@@ -36,39 +36,8 @@
     },
 
     methods: {
-      
-      async removeLink (link) {
-
-        try {
-          const response = await LinksClient.removeLink(link)
-          this.$emit('UpdateLinks', response.data)
-          
-        } catch (error) {
-          this.$swal({
-            type: 'error',
-            title: 'Oops...',
-            text: 'There was an error loading your past links.',
-          })
-        } finally {
-          this.isLoading = false
-        }
-
-      },
-      async addRemoveTree (link) {
-
-        try {
-          const response = await LinksClient.addRemoveLinkTree(link)
-          this.$emit('UpdateLinks', response.data)
-          
-        } catch (error) {
-          this.$swal({
-            type: 'error',
-            title: 'Oops...',
-            text: 'There was an error loading your past links.',
-          })
-        } finally {
-          this.isLoading = false
-        }
+      async showOptions(link) {
+        this.$emit('options', link.id)
 
       },
     }

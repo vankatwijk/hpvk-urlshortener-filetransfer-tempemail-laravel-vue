@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col sm:flex-row mx-auto justify-between focus:outline-none border border-transparent sm:focus-within:border-teal-500 rounded-full">
-        <input v-model="original" type="text" class="p-3 pl-5 w-full sm:w-10/12 z-10 text-teal-600 outline-none rounded-l-full rounded-r-full sm:rounded-r-none"
+        <input v-model="original" type="text" class="p-3 pl-5 w-full sm:w-10/12 z-9 text-teal-600 outline-none rounded-l-full rounded-r-full sm:rounded-r-none"
                required
                autocorrect="off" autocapitalize="none"
                @keyup.enter="shorten()"
@@ -32,6 +32,13 @@
   export default {
     name: 'ShortenLinkForm',
 
+    props: {
+      intree:{
+        type: Number,
+        default: 0
+      },
+    },
+
     data () {
       return {
         isLoading: false,
@@ -52,6 +59,7 @@
           this.file = e.target.files[0];
 
           const link = {
+            intree: this.intree,
             original: '@file',
             file:  this.file
           }
@@ -80,6 +88,7 @@
         this.isLoading = true
 
         const link = {
+          intree: this.intree,
           original: this.addProtocolToLink(this.original)
         }
 

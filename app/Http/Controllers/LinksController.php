@@ -76,6 +76,13 @@ class LinksController extends Controller
         return response()->json($links);
     }
 
+    public function saveLinkChanges(Request $request)
+    {
+        $links = $this->saveLinkChangesdb($request);
+
+        return response()->json($links);
+    }
+
     public function store(StoreShortLink $request)
     {
         $data = $request->validated();
@@ -166,6 +173,16 @@ class LinksController extends Controller
         $clicks = Click::where('link_id','=',$id)->latest()->take(5)->get();
 
         return $clicks;
+    }
+
+    private function saveLinkChangesdb($request)
+    {
+        if (auth()->guest()) {
+            return collect();
+        }
+        $link = Link::where('id','=',$request->id)->update(['label' => $request->label,'bg_color' => $request->bg_color,'order' => $request->order]);
+
+        return auth()->user()->links;
     }
 
     private function removeLinkdb($id)

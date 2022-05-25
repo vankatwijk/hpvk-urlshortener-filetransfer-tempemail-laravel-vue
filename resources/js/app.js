@@ -46,6 +46,7 @@ Vue.filter('momentDayYear', function(text) {
     return moment(text).format('MMMM Do YYYY')
 })
 
+Vue.component('v-modal', require('./components/common/VModal').default)
 Vue.component('navigation-bar', require('./components/layout/NavigationBar').default)
 Vue.component('dash-bar', require('./components/layout/DashBar').default)
 Vue.component('shorten-link-page', require('./components/landing/ShortenLinkPage').default)

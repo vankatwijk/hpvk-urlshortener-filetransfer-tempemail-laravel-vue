@@ -13,6 +13,7 @@ class Link extends Model
         'original',
         'folder',
         'file_name',
+        'intree',
     ];
 
     protected $hidden = [

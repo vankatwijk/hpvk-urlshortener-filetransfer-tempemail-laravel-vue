@@ -25,6 +25,7 @@ class StoreShortLink extends FormRequest
     {
         return [
             'original' => 'required|url',
+            'intree' => 'required',
         ];
     }
 }

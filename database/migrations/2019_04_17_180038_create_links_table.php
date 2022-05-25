@@ -15,9 +15,12 @@ class CreateLinksTable extends Migration
     {
         Schema::create('links', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('short_code')->nullable();
             $table->bigInteger('user_id')->nullable();
             $table->boolean('intree')->default(0);
             $table->string('label')->nullable();
+            $table->string('bg_color')->nullable();
+            $table->integer('order')->default(0);
             $table->text('original');
             $table->string('folder')->nullable();
             $table->string('file_name')->nullable();

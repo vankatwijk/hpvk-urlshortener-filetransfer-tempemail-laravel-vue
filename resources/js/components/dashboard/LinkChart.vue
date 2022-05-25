@@ -19,8 +19,8 @@
           datasets:
             [{
               data: this.chartData,
-              backgroundColor: 'rgba(107, 70, 193, 1)',
-              borderColor: 'rgba(107, 70, 193, 1)',
+              backgroundColor: 'rgba(49, 151, 149, 1)',
+              borderColor: 'rgba(49, 151, 149, 1)',
               categoryPercentage: 1,
             }]
         }

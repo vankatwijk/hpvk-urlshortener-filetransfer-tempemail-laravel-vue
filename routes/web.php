@@ -47,6 +47,8 @@ Route::group(['prefix' => 'api'], function () {
 
     Route::post('/treelink/addRemove', 'LinksController@addRemoveTree');
 
+    Route::post('/link/saveLinkChanges', 'LinksController@saveLinkChanges');
+
     Route::post('/removeLink', 'LinksController@removeLink');
 });
 

@@ -28,6 +28,12 @@ export default {
 
         return client.post('treelink/addRemove', link)
     },
+
+    saveLinkChanges(link) {
+
+        return client.post('link/saveLinkChanges', link)
+    },
+
     removeLink(link) {
 
         return client.post('removeLink', link)
