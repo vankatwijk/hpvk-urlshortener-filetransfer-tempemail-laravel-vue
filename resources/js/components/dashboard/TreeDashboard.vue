@@ -8,8 +8,8 @@
             <div class="flex flex-wrap md:flex-no-wrap bg-grey-lighter mx-auto md:w-5/6">
               <div class="mt-10 w-full md:w-3/6 p-2">
 
-                <img v-if="!user.avatar" onclick="document.getElementById('file').click();" class="flex md:w-1/12 p-2 mb-6 mx-auto shadow rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="Profile image"/>
-                <img v-if="user.avatar" onclick="document.getElementById('file').click();" class="flex md:w-1/12 p-2 mb-6 mx-auto shadow rounded-full" :src="APP_URL+'/storage/'+user.avatar" alt="Profile image"/>
+                <img v-if="!user.avatar" onclick="document.getElementById('file').click();" class="flex md:w-5/12 p-2 mb-6 mx-auto shadow rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="Profile image"/>
+                <img v-if="user.avatar" onclick="document.getElementById('file').click();" class="flex md:w-5/12 p-2 mb-6 mx-auto shadow rounded-full" :src="APP_URL+'/storage/'+user.avatar" alt="Profile image"/>
                 
                 <input @change="upload" type="file" style="display:none;" id="file" name="file"/>
 
@@ -21,9 +21,8 @@
                 </span>
 
                 <span class="flex bg-white p-2 mb-6 mx-auto shadow rounded-full">
-                  <a :href="APP_URL+'/t/'+treeLink" target="_blank" class="text-blue-500 hover:underline">{{APP_URL+'/t/'+treeLink}}</a>
                 </span>
-                
+
               </div>
             </div>
           </div>
