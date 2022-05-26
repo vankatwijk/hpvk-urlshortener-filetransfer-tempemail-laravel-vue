@@ -13,9 +13,15 @@
             <i class="fas fa-edit text-xl"></i>
             <p class="mt-1">{{ link.intree }}</p>
         </div>
-        <div class="flex flex-col ml-6 sm:ml-3">
-            <a :href="'/' + link.short"  target="_blank" class="text-teal-600 font-semibold hover:underline">{{ APP_URL }}/{{ link.short }}</a>
 
+        <div v-if="link.original == '@text'" class="flex flex-col ml-6 sm:ml-3">
+        
+            <span>{{ link.label | truncate(30) }}</span>
+        </div>
+
+        <div v-else class="flex flex-col ml-6 sm:ml-3">
+        
+            <a :href="'/' + link.short"  target="_blank" class="text-teal-600 font-semibold hover:underline">{{ APP_URL }}/{{ link.short }}</a>
 
             <a v-if="link.label" :href="link.original"  target="_blank" class="text-teal-500 mt-1 hover:underline">{{ link.label | truncate(30) }}</a>
             <a v-else :href="link.original"  target="_blank" class="text-teal-500 mt-1 hover:underline">{{ link.original | truncate(30) }}</a>

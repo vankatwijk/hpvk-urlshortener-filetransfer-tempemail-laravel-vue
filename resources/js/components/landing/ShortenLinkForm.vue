@@ -6,6 +6,14 @@
                @keyup.enter="shorten()"
                placeholder="Enter URL / Upload file">
         <button
+            v-if="intree"
+            @submit.prevent=""
+            @click.prevent="text()"
+            class="w-full sm:w-6/12 bg-teal-400 hover:bg-teal-200 text-white font-bold py-3 px-4 z-0 mt-2 sm:mt-0 sm:-ml-5 rounded-full sm:rounded-r-none focus:outline-none">
+            <span v-if="! isLoading" class="sm:ml-5 text-lg">Text</span>
+
+        </button>
+        <button
             onclick="document.getElementById('file').click();"
             @submit.prevent=""
             class="w-full sm:w-6/12 bg-teal-800 hover:bg-teal-400 text-white font-bold py-3 px-4 z-0 mt-2 sm:mt-0 sm:-ml-5 rounded-full sm:rounded-r-none focus:outline-none">
@@ -16,7 +24,7 @@
             @submit.prevent=""
             @click.prevent="shorten()"
             type="submit"
-            class="w-full sm:w-6/12 bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-4 z-0 mt-2 sm:mt-0 sm:-ml-5 rounded-full focus:outline-none">
+            class="w-full sm:w-6/12 bg-teal-600 hover:bg-teal-400 text-white font-bold py-3 px-4 z-0 mt-2 sm:mt-0 sm:-ml-5 rounded-full focus:outline-none">
             <span v-if="! isLoading" class="sm:ml-5 text-lg">Shorten</span>
             <span>
                 <clip-loader :loading="isLoading" :color="'#5dc596'" :size="'20px'" class="mx-auto sm:ml-5"></clip-loader>
@@ -81,6 +89,33 @@
             this.isLoading = false
           }
 
+        }
+      },
+      
+      async text () {
+        this.isLoading = true
+
+        const link = {
+          intree: this.intree,
+          original: '@text',
+          label: this.original,
+        }
+
+        try {
+          const response = await linksClient.text(link)
+          this.original = ''
+          this.$emit('addToPreviousLinks', response.data)
+        } catch (error) {
+
+          console.log('error',error);
+          this.$swal({
+            type: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            confirmButtonColor: '#805ad5',
+          })
+        } finally {
+          this.isLoading = false
         }
       },
       

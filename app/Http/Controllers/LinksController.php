@@ -83,11 +83,45 @@ class LinksController extends Controller
         return response()->json($links);
     }
 
+    public function saveLinkTreeChanges(Request $request)
+    {
+        if (auth()->guest()) {
+            return auth()->guest();
+        }
+
+        $user = auth()->user();
+        $user->bg_color = $request->bg_color;
+        $user->description = $request->description;
+        $user->save();
+
+
+        return response()->json(auth()->user());
+    }
+
     public function store(StoreShortLink $request)
     {
         $data = $request->validated();
 
         $link = $this->createLinkForUserOrGuest($data);
+
+        return response()->json(new LinkResource($link));
+    }
+
+    public function storetext(Request $request)
+    {
+
+        if (auth()->guest()) {
+            return Link::create([
+                "original" => $request->original,
+                "label" => $request->label,
+            ]);
+        }
+
+        $link = auth()->user()->links()->create([
+            "intree" => $request->intree,
+            "original" => $request->original,
+            "label" => $request->label,
+        ]);
 
         return response()->json(new LinkResource($link));
     }

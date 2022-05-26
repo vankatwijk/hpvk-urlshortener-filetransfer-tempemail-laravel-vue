@@ -14,6 +14,12 @@ export default {
         return client.post('shorten', link)
     },
 
+    text(link) {
+        console.log('process.env.MIX_APP_URL', process.env.MIX_APP_URL);
+
+        return client.post('text', link)
+    },
+
     upload(link) {
 
         return client.uploadPost('upload', link)
@@ -32,6 +38,10 @@ export default {
     saveLinkChanges(link) {
 
         return client.post('link/saveLinkChanges', link)
+    },
+    saveUserChanges(user) {
+
+        return client.post('link/saveLinkTreeChanges', user)
     },
 
     removeLink(link) {

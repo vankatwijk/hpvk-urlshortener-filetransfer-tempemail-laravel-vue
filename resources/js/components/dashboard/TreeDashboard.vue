@@ -3,27 +3,40 @@
         <clip-loader :loading="isLoading" :color="'#805ad5'" :size="'21px'" class="mx-auto self-center"></clip-loader>
 
         <transition appear name="fade" mode="out-in">
-          <div class="">
+          <div class="mx-auto md:w-5/6 rounded" :style="(user.bg_color ? 'background-color:'+user.bg_color : '')">
 
             <div class="flex flex-wrap md:flex-no-wrap bg-grey-lighter mx-auto md:w-5/6">
               <div class="mt-10 w-full md:w-3/6 p-2">
 
-                <img v-if="!user.avatar" onclick="document.getElementById('file').click();" class="flex md:w-5/12 p-2 mb-6 mx-auto shadow rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="Profile image"/>
-                <img v-if="user.avatar" onclick="document.getElementById('file').click();" class="flex md:w-5/12 p-2 mb-6 mx-auto shadow rounded-full" :src="APP_URL+'/storage/'+user.avatar" alt="Profile image"/>
-                
+                <img v-if="!user.avatar" onclick="document.getElementById('file').click();" class="flex md:w-3/12 p-2 mb-6 mx-auto shadow rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="Profile image"/>
+                <img v-if="user.avatar" onclick="document.getElementById('file').click();" class="flex md:w-3/12 p-2 mb-6 mx-auto shadow rounded-full" :src="APP_URL+'/storage/'+user.avatar" alt="Profile image"/>
+
                 <input @change="upload" type="file" style="display:none;" id="file" name="file"/>
 
               </div>
               <div class="mt-10 w-full md:w-3/6 p-2">
+
+                <button
+                    @click="showUserModal = true"
+                    class=" mb-6 w-full bg-teal-400 hover:bg-teal-200 text-white font-bold py-3 px-4 z-0 mt-2 rounded-full focus:outline-none">
+                    <span v-if="! isLoading" class="sm:ml-5 text-lg">Edit Link Tree</span>
+                </button>
 
                 <span class="flex bg-white p-2 mb-6 mx-auto shadow rounded-full">
                   <a :href="APP_URL+'/t/'+treeLink" target="_blank" class="text-blue-500 hover:underline">{{APP_URL+'/t/'+treeLink}}</a>
                 </span>
 
                 <span class="flex bg-white p-2 mb-6 mx-auto shadow rounded-full">
+                  {{user.description}}
                 </span>
 
               </div>
+            </div>
+
+            <div class="flex flex-wrap md:flex-no-wrap bg-grey-lighter mx-auto md:w-6/6">
+
+                <shorten-link-form :intree="1" @addToPreviousLinks="getShortenLinks" ></shorten-link-form>
+
             </div>
           </div>
 
@@ -32,7 +45,8 @@
 
         <transition appear name="fade">
 
-            <div class="flex flex-wrap md:flex-no-wrap bg-grey-lighter mx-auto md:w-5/6">
+              
+            <div class="flex flex-wrap md:flex-no-wrap bg-grey-lighter mx-auto md:w-5/6 rounded" :style="(user.bg_color ? 'background-color:'+user.bg_color : '')">
 
               <div class="mt-10 w-full md:w-3/6 p-2">
                 <div class="text-white text-center bg-grey-light p-2">
@@ -67,10 +81,6 @@
               <div class="mt-10 w-full md:w-3/6 p-2">
 
                 <div class="text-white text-center bg-grey-light p-2">
-              
-                  <transition appear name="fade">
-                      <shorten-link-form :intree="1" @addToPreviousLinks="getShortenLinks" class="w-full mb-5"></shorten-link-form>
-                  </transition>
                 
                   <transition appear name="fade">
                       <links-list :links="links" v-if="links.length > 0" class="w-full text-left" v-model="selectedLink">
@@ -125,6 +135,37 @@
             </v-modal>
 
         </transition>
+
+        <transition appear name="fade">
+
+            <v-modal v-if="showUserModal" title="Edit Link" width="sm" @close="showUserModal = false">
+              <div class="text-gray-800">
+
+                {{user}}
+
+                <div class="mb-4 px-2 w-full">
+                  <label class="block mb-1 text-sm" for="input3">Description</label>
+                  <textarea id="input3" class="w-full border-green-500 border px-4 py-2 rounded focus:border focus:border-blue-500 focus:shadow-outline outline-none" type="text" placeholder="" v-model="user.description"/>
+                </div>
+
+                <div class="mb-4 px-2 w-full">
+                  <label class="block mb-1 text-sm" for="input3">Background Color</label>
+                  <input id="input3" class="h-20 w-full border-green-500 border px-4 py-2 rounded focus:border focus:border-blue-500 focus:shadow-outline outline-none" type="color" v-model="user.bg_color" />
+                </div>
+
+                <div class="flex flex-row rounded mt-5 bg-white p-2 shadow w-full items-center cursor-pointer pointer select-none overflow-hidden">
+                </div>
+
+
+              </div>
+
+              <div class="text-right mt-4">
+                <button @click="showUserModal = false" class="px-4 py-2 text-sm text-gray-600 focus:outline-none hover:underline">Close</button>
+                <button class="mr-2 px-4 py-2 text-sm rounded text-white bg-teal-500 focus:outline-none hover:bg-teal-400" @click="saveUserChanges(user);showUserModal = false;">Save</button>
+              </div>
+            </v-modal>
+
+        </transition>
         
     </div>
 </template>
@@ -145,6 +186,7 @@
         user:{},
         treeLink:'',
         showOptionsModal: false,
+        showUserModal: false,
       }
     },
 
@@ -259,6 +301,21 @@
             type: 'error',
             title: 'Oops...',
             text: 'There was an error saving changes to your link.',
+          })
+        } finally {
+          this.isLoading = false
+        }
+
+      },
+      async saveUserChanges(user) {
+        try {
+          const response = await LinksClient.saveUserChanges(user)
+          
+        } catch (error) {
+          this.$swal({
+            type: 'error',
+            title: 'Oops...',
+            text: 'There was an error saving changes to your link tree.',
           })
         } finally {
           this.isLoading = false

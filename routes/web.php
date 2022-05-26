@@ -35,6 +35,8 @@ Route::get('/links/create', 'LinksController@create');
 Route::group(['prefix' => 'api'], function () {
     Route::post('/shorten', 'LinksController@store');
 
+    Route::post('/text', 'LinksController@storetext');
+
     Route::post('/upload', 'LinksController@storeupload');
 
     Route::post('/upload/avatar', 'UsersController@upload');
@@ -48,6 +50,8 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('/treelink/addRemove', 'LinksController@addRemoveTree');
 
     Route::post('/link/saveLinkChanges', 'LinksController@saveLinkChanges');
+
+    Route::post('/link/saveLinkTreeChanges', 'LinksController@saveLinkTreeChanges');
 
     Route::post('/removeLink', 'LinksController@removeLink');
 });

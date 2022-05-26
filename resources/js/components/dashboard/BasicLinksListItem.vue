@@ -1,16 +1,32 @@
 <template>
-    <a :href="'/' + link.short"  target="_blank" class="text-teal-600 font-semibold hover:underline">
-      <div class="flex flex-row rounded mt-5 text-teal bg-white p-4 shadow w-full items-center cursor-pointer pointer select-none overflow-hidden selected"
-          :class="{ 'selected' : selected }">
+    <div>
+      <a v-if="link.original !== '@text'" :href="'/' + link.short"  target="_blank" class="text-teal-600 font-semibold hover:underline">
+        <div class="flex flex-row rounded mt-5 text-teal bg-white p-4 shadow w-full items-center cursor-pointer pointer select-none overflow-hidden selected"
+            :class="{ 'selected' : selected }"
+            :style="(link.bg_color ? 'background-color:'+link.bg_color : '')"
+          >
 
-          <div class="flex flex-col items-center text-teal-500 h-8 ml-3 rounded" >
-              <img class="h-full" :src="'https://s2.googleusercontent.com/s2/favicons?domain='+link.original" alt="ico" />
-          </div>
+            <div class="flex flex-col items-center text-teal-500 h-8 ml-3 rounded" >
+                <img class="h-full" :src="'https://s2.googleusercontent.com/s2/favicons?domain='+link.original" alt="ico" />
+            </div>
+            <div class="flex flex-col ml-6 sm:ml-8">
+                <span class="text-white mt-1 hover:underline">{{ filterProtocol(link.original) | truncate(60) }}</span>
+            </div>
+
+        </div>
+      </a>
+
+      <div v-else class="flex flex-row rounded mt-5 text-teal bg-white p-4 shadow w-full items-center cursor-pointer pointer select-none overflow-hidden selected"
+          :class="{ 'selected' : selected }"
+          :style="(link.bg_color ? 'background-color:'+link.bg_color : '')"
+          >
+
           <div class="flex flex-col ml-6 sm:ml-8">
-              <span class="text-white mt-1 hover:underline">{{ filterProtocol(link.original) | truncate(60) }}</span>
+              <span class="text-white mt-1">{{ filterProtocol(link.label) | truncate(120) }}</span>
           </div>
+
       </div>
-    </a>
+    </div>
 </template>
 
 <script>

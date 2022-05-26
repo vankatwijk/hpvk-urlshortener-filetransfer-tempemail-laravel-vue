@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
     
 </head>
-<body class="bg-gray-200 font-sans">
+<body class="bg-gray-200 font-sans" style="background-color:{{$user->bg_color}}">
 
 <div style="display:none;">
 
@@ -77,20 +77,20 @@
 
 </div>
 
-<div id="app">
+<div id="app" >
     
 
     <main role="main" class="container mt-10 mx-auto">
         @yield('content')
     </main>
 
-<div class="footer-links">
-    <a href="{{env('APP_URL')}}'/policy'" target="_blank">policy <i class="fab fa-fingerprint"></i></a>
-    <a href="{{env('APP_URL')}}'/terms'" target="_blank">Terms <i class="fab fa-file"></i></a>
-    <a href="{{env('APP_URL')}}'/blog'" target="_blank">Blog <i class="fab fa-file"></i></a>
-    <a href="https://vanniks.com" target="_blank">Vanniks <i class="fab fa-egg"></i></a>
-    <a href="https://vanniks.com" target="_blank">created by hendrikus pieter van katwijk<i class="fab fa-egg"></i></a>
-</div>
+    <div class="footer-links">
+        <a href="{{env('APP_URL')}}'/policy'" target="_blank">policy <i class="fab fa-fingerprint"></i></a>
+        <a href="{{env('APP_URL')}}'/terms'" target="_blank">Terms <i class="fab fa-file"></i></a>
+        <a href="{{env('APP_URL')}}'/blog'" target="_blank">Blog <i class="fab fa-file"></i></a>
+        <a href="https://vanniks.com" target="_blank">Vanniks <i class="fab fa-egg"></i></a>
+        <a href="https://vanniks.com" target="_blank">created by hendrikus pieter van katwijk<i class="fab fa-egg"></i></a>
+    </div>
 
 </div>
 </body>
