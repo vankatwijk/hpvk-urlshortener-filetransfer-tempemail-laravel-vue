@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col sm:flex-row mx-auto justify-between focus:outline-none border border-transparent sm:focus-within:border-teal-500 rounded-full">
+    <div class="flex flex-col sm:flex-row mx-auto justify-between focus:outline-none border border-transparent sm:focus-within:border-teal-500 rounded-full" style="width:100%">
         <input v-model="original" type="text" class="p-3 pl-5 w-full sm:w-10/12 z-9 text-teal-600 outline-none rounded-l-full rounded-r-full sm:rounded-r-none"
                required
                autocorrect="off" autocapitalize="none"

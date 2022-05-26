@@ -16,7 +16,7 @@
         </div>
       </a>
 
-      <div v-else class="flex flex-row rounded mt-5 text-teal bg-white p-4 shadow w-full items-center cursor-pointer pointer select-none overflow-hidden selected"
+      <div v-else class="flex flex-row rounded mt-5 text-teal bg-white p-4 shadow w-full items-center cursor-text overflow-hidden selected"
           :class="{ 'selected' : selected }"
           :style="(link.bg_color ? 'background-color:'+link.bg_color : '')"
           >
