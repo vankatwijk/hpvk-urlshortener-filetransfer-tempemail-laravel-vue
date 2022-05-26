@@ -322,6 +322,20 @@
       },
 
 
+    },
+    watch: {
+
+      user: {
+          // This will let Vue know to look inside the array
+          deep: true,
+
+          // We have to move our method to a handler field
+          handler(){
+
+            document.querySelector("body").style.background = this.user.bg_color;
+          }
+        }
+
     }
   }
 </script>

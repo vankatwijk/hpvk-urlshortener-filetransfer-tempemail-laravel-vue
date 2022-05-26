@@ -27,7 +27,7 @@
     <link hreflang="en" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
     
 </head>
-<body class="bg-gray-200 font-sans">
+<body class="bg-gray-200 font-sans" ref="layoutbody">
 
 <div style="display:none;">
 

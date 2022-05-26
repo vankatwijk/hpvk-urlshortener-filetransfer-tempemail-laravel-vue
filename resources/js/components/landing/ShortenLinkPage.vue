@@ -1,7 +1,9 @@
 <template>
     <div class="p-3">
         <transition appear name="fade">
-            <shorten-link-form @addToPreviousLinks="addToPreviousLinks" class="sm:w-full md:w-2/3"></shorten-link-form>
+          <div class=" mx-auto p-6 sm:w-full md:w-2/3">
+              <shorten-link-form @addToPreviousLinks="addToPreviousLinks"></shorten-link-form>
+          </div>
         </transition>
 
         <transition appear name="fade" mode="out-in">
