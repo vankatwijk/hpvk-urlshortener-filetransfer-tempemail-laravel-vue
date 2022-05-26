@@ -141,8 +141,6 @@
             <v-modal v-if="showUserModal" title="Edit Link" width="sm" @close="showUserModal = false">
               <div class="text-gray-800">
 
-                {{user}}
-
                 <div class="mb-4 px-2 w-full">
                   <label class="block mb-1 text-sm" for="input3">Description</label>
                   <textarea id="input3" class="w-full border-green-500 border px-4 py-2 rounded focus:border focus:border-blue-500 focus:shadow-outline outline-none" type="text" placeholder="" v-model="user.description"/>
